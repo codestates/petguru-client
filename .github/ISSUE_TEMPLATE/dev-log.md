@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+<img src="https://i.ibb.co/Hn0QnFv/DevLog.png" alt="DevLog" border="0">
+
 # 오늘은 어떻게 프로젝트에 기여했나요?
 - 
 # 오늘의 프로젝트에서 힘든 점은 무엇인가요?

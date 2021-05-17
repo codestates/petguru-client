@@ -7,6 +7,8 @@ assignees: ''
 
 ---
 
+<img src="https://i.ibb.co/N18Cfcn/Error.png" alt="Error" border="0">
+
 # 어떤 에러인가요?
 - 
 # 에러 메시지
