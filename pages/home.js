@@ -2,14 +2,16 @@ import Head from 'next/head'
 import HomeNavbar from '../src/components/HomeNavbar'
 
 
-export default function MissingMain() {
+export default function LandinPage() {
   return (
     <>
       <Head>
-        <title>펫그루 | 실종신고</title>
+        <title>펫그루 | Welcome</title>
       </Head>
       <HomeNavbar />
-      <h1>펫그루 실종신고 페이지 메인</h1>
+      <h1>펫그루 메인페이지입니다.</h1>
+    
     </>
   )
 }
+
