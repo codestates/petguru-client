@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from 'next/link';
+import LandingPageNavbar from '../src/components/LandingPageNavbar'
 
 
 export default function Login() {
@@ -8,6 +9,7 @@ export default function Login() {
       <Head>
         <title>펫그루 | Login</title>
       </Head>
+      <LandingPageNavbar />
       <h1>펫그루 로그인페이지입니다.</h1>
       <div>
         <form>
