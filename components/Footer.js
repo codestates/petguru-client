@@ -1,5 +1,5 @@
 export default function Footer() {
-  return <footer>&copy; {new Date().getFullYear()} PetGuru </footer>;
+  return <div>Copyright ⓒ PetGuru. All rights reserved. </div>
 }
 
 /*
