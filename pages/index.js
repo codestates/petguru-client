@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import Head from "next/head";
 import LoginModal from "../components/auth/LoginModal";
 import LandingNavigationBar from "../components/LandingNavbar";
 
-export default function LandingPage() {
+const LandingPage = () => {
   const [open, setOpen] = useState(false);
 
   const openModal = () => {
@@ -23,3 +22,5 @@ export default function LandingPage() {
     </LandingNavigationBar>
   );
 }
+
+export default LandingPage;
