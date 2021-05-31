@@ -1,6 +1,6 @@
-import Footer from '../components/Footer'
 import '../styles/globals.css'
 import PropTypes from 'prop-types'
+import Footer from '../components/Footer'
 
 function App({ Component, pageProps }) {
   return (
