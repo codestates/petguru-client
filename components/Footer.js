@@ -1,5 +1,10 @@
 export default function Footer() {
-  return <div>Copyright ⓒ PetGuru. All rights reserved. </div>
+  return (
+    <footer>
+      <p>Visit Our GitHub <a href="https://github.com/codestates/petguru-client" target="_blank">PetGuru</a></p>
+      Copyright &copy; PetGuru. {new Date().getFullYear()} All rights reserved.
+    </footer>
+  );
 }
 
 /*

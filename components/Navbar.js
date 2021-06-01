@@ -20,14 +20,14 @@ export default function NavigationBar({children}) {
             <a>실종신고</a>
           </Link>
         </div>
-        <div style={{ marginLeft: "75%" }}>
-          <Link href="/">
-            <a>로그아웃</a>
-          </Link>
-        </div>
-        <div style={{ marginLeft: "1%" }}>
+        <div style={{ marginLeft: "60%" }}>
           <Link href="/mypage">
             <a>마이페이지</a>
+          </Link>
+        </div>
+        <div style={{ marginLeft: "5%" }}>
+          <Link href="/">
+            <a>로그아웃</a>
           </Link>
         </div>
       </div>

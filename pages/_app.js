@@ -21,8 +21,8 @@ function App({ Component, pageProps }) {
     <>
       <Provider store={createStoreWithMiddleware(Reducer, enhancers)}>
         <Component />
+        <Footer />
       </Provider>
-      <Footer />
     </>
   );
 }

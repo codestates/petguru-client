@@ -7,11 +7,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>펫그루 | 홈</title>
+        <title>펫구루 | 홈</title>
       </Head>
       <NavigationBar>
         <h1 style={{ backgroundColor: "black", color: "white" }}>
-          펫그루 홈 페이지입니다.
+          펫구루 홈 페이지입니다.
         </h1>
         <div
           className="container"

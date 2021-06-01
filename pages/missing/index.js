@@ -5,10 +5,10 @@ export default function MissingMain() {
   return (
     <>
       <Head>
-        <title>펫그루 | 실종신고</title>
+        <title>펫구루 | 실종신고</title>
       </Head>
       <NavigationBar>
-        <h1>펫그루 실종신고 페이지 메인</h1>
+        <h1>펫구루 실종신고 페이지 메인</h1>
         <div
           className="container"
           style={{
