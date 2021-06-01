@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import Link from "next/link";
 
-const LandingNavigationBar = ({ children, props }) => {
+const LandingPageNavBar = ({ children, props }) => {
   return (
-    /*
+
     <>
         <header>
           <h2>
@@ -20,8 +20,8 @@ const LandingNavigationBar = ({ children, props }) => {
         </header>
       {children}
     </>
-    */
 
+/*
     <>   
         <div className="nav" style={{ marginTop: "30px", display: "flex" }}>
           <div style={{ backgroundColor: "red", marginLeft: "3%" }}>
@@ -38,12 +38,12 @@ const LandingNavigationBar = ({ children, props }) => {
         </div>       
         {children}
     </>
-
+*/
   );
 };
 
-LandingNavigationBar.propTypes = {
+LandingPageNavBar.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
-export default LandingNavigationBar;
+export default LandingPageNavBar;

@@ -1,3 +1,7 @@
+.label {
+  text-align: left;
+}
+
 .input {
   margin: 5px;
 }
