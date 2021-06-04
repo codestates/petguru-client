@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../actions/user_actions";
-import Container from "../../components/Container";
+import Container from "../../public/SignUpSignIn";
 
 export default function Login() {
   const router = useRouter();
@@ -47,15 +47,20 @@ export default function Login() {
         <title>펫구루 | Login</title>
       </Head>
       <Container>
+        <header>
+          <h2>
+            <a><Link href="/">Petguru</Link></a>
+          </h2>
+        </header>
         <div className="contentsBox">
           <div className="login">
             <p className="main-txt">
-              펫구루와 함께
+              PetGuru와 함께
               <br />
               모든 반려 생활 궁긍즘을 해결해요!
             </p>
             <p className="sub-txt">
-              펫구루에서 제공하는 서비스를 위해
+              PetGuru에서 제공하는 서비스를 위해
               <br />
               로그인 해주세요.
             </p>

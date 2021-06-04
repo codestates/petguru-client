@@ -6,6 +6,7 @@ import Reducer from "../reducers";
 import Footer from "../components/Footer";
 import "../styles/globals.css";
 import PropTypes from "prop-types";
+import Head from "next/head";
 
 const createStoreWithMiddleware = applyMiddleware(
   promiseMiddleware,
@@ -20,7 +21,10 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Provider store={createStoreWithMiddleware(Reducer, enhancers)}>
-        <Component />
+        <Head>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
+        <Component {...pageProps} />
         <Footer />
       </Provider>
     </>

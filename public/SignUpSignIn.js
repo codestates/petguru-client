@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   padding: 158px 0 86px;
-  background-color: #f8f8f8;
+  background-color: #f8ede3;
   div {
     display: block;
   }
@@ -16,12 +16,12 @@ const Container = styled.div`
   p.main-txt {
     margin-bottom: 12px;
     font-size: 23px;
-    color: #303644;
+    color: #798777;
     line-height: 1.24;
     letter-spacing: -0.5px;
   }
   p.sub-txt {
-    color: #8d95a0;
+    color: #798777;
     line-height: 1.4;
   }
   .user-input {
@@ -92,7 +92,7 @@ const Container = styled.div`
   }
   .user-input label {
     display: block;
-    font-size: 12px;
+    font-size: 15px;
     color: #8d95a0;
     line-height: 1.17;
   }
@@ -159,8 +159,8 @@ const Container = styled.div`
     margin-top: 24px;
     font-size: 17px;
     font-weight: bold;
-    color: #ffffff;
-    background-color: #38ada9;
+    color: #f7f7f7;
+    background-color: #798777;
     border-radius: 26px;
   }
 
@@ -236,11 +236,11 @@ const Container = styled.div`
   .contentsBox {
     overflow: hidden;
     position: relative;
-    width: 420px;
+    width: 450px;
     min-height: 738px;
     padding: 50px 60px;
     margin: 0 auto;
-    background-color: #ffffff;
+    background-color: #f7f7f7;
     border: 0.5px solid #c9cdd3;
     border-radius: 4px;
     box-sizing: border-box;
@@ -252,7 +252,7 @@ const Container = styled.div`
     margin-top: 24px;
     font-size: 17px;
     font-weight: bold;
-    color: #fff;
+    color: #f7f7f7;
     background-color: #ff5a5c;
     border-radius: 26px;
   }
