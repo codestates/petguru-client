@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import Link from "next/link";
 
 const LandingPageMain = ({ children, props }) => {
   return (
@@ -29,10 +28,10 @@ const LandingPageMain = ({ children, props }) => {
         <br />
         <hr />
         <ul class="grid">
-          <li class="small" style={{ backgroundImage: "url()" }}></li>
-          <li class="large" style={{ backgroundImage: "url()" }}></li>
-          <li class="large" style={{ backgroundImage: "url()" }}></li>
-          <li class="small" style={{ backgroundImage: "url()" }}></li>
+          <li class="small" style={{ backgroundImage: "url(img/4.jpeg" }}></li>
+          <li class="large" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
+          <li class="large" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
+          <li class="small" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
         </ul>
       </section>
 

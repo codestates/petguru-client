@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Container from "../../components/Container";
+import Link from "next/link";
+import Container from "../../public/SignUpSignIn";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../actions/user_actions";
 import { useRouter } from "next/router";
@@ -58,18 +59,25 @@ const Register = () => {
   return (
     <>
       <Head>
-        <title>펫구루|회원가입</title>
+        <title>펫구루 | Sign Up</title>
       </Head>
       <Container>
+        <header>
+          <h2>
+            <a>
+              <Link href="/">Petguru</Link>
+            </a>
+          </h2>
+        </header>
         <div className="contentsBox">
           <div className="login">
             <p className="main-txt">
               안녕하세요!
               <br />
-              전문가와 함께 하는 펫구루입니다.
+              전문가와 함께 하는 PetGuru입니다.
             </p>
             <p className="sub-txt">
-              펫구루에서 제공하는 서비스를 위해
+              PetGuru에서 제공하는 서비스를 위해
               <br />
               회원가입 해주세요.
             </p>
