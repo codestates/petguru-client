@@ -8,6 +8,7 @@ const LandingPage = () => {
     <>
       <Head>
         <title>펫구루 | 환영합니다!</title>
+        <link rel="icon" href="/favicon.ico" />
         <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"

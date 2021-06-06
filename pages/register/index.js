@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
-import Container from "../../public/SignUpSignIn";
+import SignUpSignIn from "../../styles/SignUpSignIn";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../actions/user_actions";
 import { useRouter } from "next/router";
@@ -61,7 +61,7 @@ const Register = () => {
       <Head>
         <title>펫구루 | Sign Up</title>
       </Head>
-      <Container>
+      <SignUpSignIn>
         <header>
           <h2>
             <a>
@@ -123,7 +123,7 @@ const Register = () => {
             </div>
           </div>
         </div>
-      </Container>
+      </SignUpSignIn>
     </>
   );
 };
