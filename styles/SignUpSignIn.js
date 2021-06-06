@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const SignUpSignIn = styled.div
+`
   padding: 158px 0 86px;
   background-color: #f8ede3;
   div {
@@ -169,25 +170,14 @@ const Container = styled.div`
   }
 
   .login .find-info > button {
-    font-size: 14px;
+    font-size: 13px;
   }
 
   .login .find-info button.btn-signup {
     position: relative;
-    padding-left: 12px;
-    margin-left: 11px;
   }
 
-  .login .find-info button.btn-signup:before {
-    position: absolute;
-    left: 0;
-    top: 2px;
-    display: block;
-    width: 1px;
-    height: 12px;
-    content: "";
-    background: #4e5263;
-  }
+
 
   ul {
     display: block;
@@ -258,4 +248,4 @@ const Container = styled.div`
   }
 `;
 
-export default Container;
+export default SignUpSignIn;

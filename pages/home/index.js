@@ -1,15 +1,143 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import NavigationBar from '../../components/Navbar'
-import '../../styles/Home.module.css'
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import NavBar from "../../components/Navbar";
+import PropTypes from "prop-types";
+import MainPage from "../../styles/Home.js";
 
-export default function Home() {
+
+
+const Home = ({ children, props }) => {
+  const setting = {
+    dots: true,
+  };
+
   return (
     <>
       <Head>
         <title>펫구루 | 홈</title>
       </Head>
-      <NavigationBar>
+      <body>
+        <NavBar />
+        <MainPage>
+          <section class="banner">
+            <div class="backgroundImage" />
+
+          </section>
+
+          <div>
+            <button class="btn-login">
+              <Link href="q&a">Question Page</Link>
+            </button>
+            <button class="btn-login">
+              <Link href="missing">Find My Pet Page</Link>
+            </button>
+          </div>
+          <section class="second">
+            <h3 class="title">Weekly Best Q&A</h3>
+
+            <section class="pt-4">
+              <div class="container px-lg-5">
+                <div class="row gx-lg-5">
+                  <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                          <i class="bi bi-collection"></i>
+                        </div>
+                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <div class="mb-0">
+                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
+                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                          <i class="bi bi-collection"></i>
+                        </div>
+                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <div class="mb-0">
+                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
+                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        </div>
+                      </div>
+                    </div>
+                  </div>{" "}
+                  <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                          <i class="bi bi-collection"></i>
+                        </div>
+                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <div class="mb-0">
+                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
+                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        </div>
+                      </div>
+                    </div>
+                  </div>{" "}
+                  <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                          <i class="bi bi-collection"></i>
+                        </div>
+                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <div class="mb-0">
+                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
+                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        </div>
+                      </div>
+                    </div>
+                  </div>{" "}
+                  <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                          <i class="bi bi-collection"></i>
+                        </div>
+                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <div class="mb-0">
+                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
+                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        </div>
+                      </div>
+                    </div>
+                  </div>{" "}
+                  <div class="col-lg-6 col-xxl-4 mb-5">
+                    <div class="card bg-light border-0 h-100">
+                      <div class="card-body text-center p-4 p-lg-5 pt-0 pt-lg-0">
+                        <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
+                          <i class="bi bi-collection"></i>
+                        </div>
+                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <div class="mb-0">
+                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
+                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </section>
+          <section class="third">
+            <h3 class="title">Find My Pet</h3>
+          </section>
+        </MainPage>
+      </body>
+      {children}
+    </>
+  );
+};
+
+/*
         <h1 style={{ backgroundColor: "black", color: "white" }}>
           펫구루 홈 페이지입니다.
         </h1>
@@ -191,7 +319,9 @@ export default function Home() {
             </div>
           </section>
         </div>
-      </NavigationBar>
-    </>
-  );
-}
+*/
+Home.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export default Home;

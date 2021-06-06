@@ -1,6 +1,28 @@
-import Link from 'next/link';
 import PropTypes from 'prop-types'
+import Link from 'next/link';
 
+
+const Navbar = ({ children, props}) => {
+  return (
+    <>
+        <header>
+          <h2>
+            <a><Link href="/home">Petguru</Link></a>
+          </h2>
+          <nav>
+            <li>
+              <a><Link href="/mypage">MyPage</Link></a>
+            </li>
+            <li>
+              <a><Link href="/">LogOut</Link></a>
+            </li>
+          </nav>
+        </header>
+      {children}
+    </>
+  )
+}
+/*
 export default function NavigationBar({children}) {
   return (
     <>
@@ -35,11 +57,14 @@ export default function NavigationBar({children}) {
     </>
   );
 }
+*/
 
-NavigationBar.propTypes = {
+Navbar.propTypes = {
   children: PropTypes.node.isRequired,
 };
 /* 
 임시 네비게이션바
 UI 찾아보고 적용해야 함
 */
+
+export default Navbar;

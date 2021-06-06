@@ -21,9 +21,7 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Provider store={createStoreWithMiddleware(Reducer, enhancers)}>
-        <Head>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+        <Head/>
         <Component {...pageProps} />
         <Footer />
       </Provider>
