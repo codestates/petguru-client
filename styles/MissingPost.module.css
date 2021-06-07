@@ -1,0 +1,23 @@
+.container {
+  width: 700px;
+  height: 400px;
+}
+
+.contents_box {
+  width: 100%;
+}
+
+.header {
+  background-color: white;
+}
+
+.title {
+  color: tomato;
+}
+
+.info {
+  color: tomato;
+}
+
+.body {
+}

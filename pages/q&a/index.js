@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import NavigationBar from "../../components/Navbar";
+import NavigationBar from "../../parts/components/Navbar";
 
 export default function QuestionsMain() {
   return (

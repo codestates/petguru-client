@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
-import LandingPageNavBar from "../components/LandingPageNavbar";
-import LandingPageMain from "../components/LandingPageMain";
+import LandingPageNavBar from '../parts/components/LandingPageNavbar';
+import LandingPageMain from "../parts/components/LandingPageMain";
 
 const LandingPage = () => {
   return (

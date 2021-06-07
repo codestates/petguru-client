@@ -3,8 +3,8 @@ import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../actions/user_actions";
-import Container from "../../components/Container";
+import Container from "../../parts/components/Container";
+import { loginUser } from "../../redux/modules/auth";
 
 export default function Login() {
   const router = useRouter();
@@ -24,19 +24,19 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // console.log('email', email);
-    // console.log('password', password);
     let body = {
       email,
       password,
     };
 
     dispatch(loginUser(body)).then((res) => {
+      // 상태코드가 200이면 로그인 되도록 수정
       if (res.payload.loginSuccess) {
-        alert(res.payload.message);
+        console.log('1');
         router.push("/home");
+        alert(res.payload.message);
       } else {
-        alert("로그인 할 수 없음");
+        alert(res.payload.message);
       }
     });
   };

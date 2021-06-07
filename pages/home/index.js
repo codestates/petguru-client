@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import NavigationBar from '../../components/Navbar'
+import NavigationBar from '../../parts/components/Navbar'
 import '../../styles/Home.module.css'
 
 export default function Home() {
@@ -33,18 +33,6 @@ export default function Home() {
             }}
           >
             배너
-          </div>
-          <div>
-            <Link href="/q&a">
-              <a>
-                <button>Q&A</button>
-              </a>
-            </Link>
-            <Link href="/missing">
-              <a>
-                <button>실종 신고</button>
-              </a>
-            </Link>
           </div>
           <section>
             <h4>주간 인기 Q&A</h4>
