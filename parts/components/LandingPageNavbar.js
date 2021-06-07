@@ -6,14 +6,14 @@ const LandingPageNavBar = ({ children, props }) => {
     <>
         <header>
           <h2>
-            <Link href="/">Petguru</Link>
+            <a><Link href="/">Petguru</Link></a>
           </h2>
           <nav>
             <li>
-              <Link href="/login">Login</Link>
+              <a><Link href="/login">Login</Link></a>
             </li>
             <li>
-              <Link href="">Ko/En</Link>
+              <a><Link href="">Ko/En</Link></a>
             </li>
           </nav>
         </header>

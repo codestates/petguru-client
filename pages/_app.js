@@ -1,15 +1,14 @@
 import "../styles/globals.css";
 import Footer from "../parts/components/Footer";
 import PropTypes from "prop-types";
-import configureStore from "../redux/configureStore";
-import withReduxSaga from 'next-redux-saga'; // next와 redux-saga를 연결하기 위한 라이브러리
-import withRedux from 'next-redux-wrapper';
 import wrapper from "../redux/configureStore";
+import Head from "next/head";
 
 function App({ Component, pageProps }) {
   return (
     <>
-        <Component />
+        <Head/>
+        <Component {...pageProps} />
         <Footer />
     </>
   );
