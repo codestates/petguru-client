@@ -24,7 +24,9 @@ const Home = ({ children, props }) => {
               <div class="bannerImage">4</div>
             </Carousel>
           </section>
-          <div>
+
+
+          <div class="btn-background">
             <button class="btn-login">
               <Link href="q&a">Question Page</Link>
             </button>
@@ -32,6 +34,7 @@ const Home = ({ children, props }) => {
               <Link href="missing">Find My Pet Page</Link>
             </button>
           </div>
+
           <section class="second">
             <h3 class="title">Weekly Best Q&A</h3>
 
@@ -140,9 +143,7 @@ const Home = ({ children, props }) => {
             <div class="missingPet">
               <div class="missingPetImg"></div>
             </div>
-            <div class="missingPet">
-              <div class="missingPetImg"></div>
-            </div>
+
             
           </section>
 

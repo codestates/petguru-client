@@ -66,8 +66,14 @@ button {
 
 div {
   position: flex;
-  padding-top: 20px;
   text-align: center;
+}
+
+.btn-background {
+  background-size: cover;
+  background-color: #f8ede3;
+  opacity: 0.75;
+  padding-bottom: 20px;
 }
 
 .btn-login {
