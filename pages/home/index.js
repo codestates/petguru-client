@@ -1,17 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import NavBar from "../../components/Navbar";
 import PropTypes from "prop-types";
 import MainPage from "../../styles/Home.js";
-
-
+import Carousel from "react-elastic-carousel";
 
 const Home = ({ children, props }) => {
-  const setting = {
-    dots: true,
-  };
-
   return (
     <>
       <Head>
@@ -22,9 +17,13 @@ const Home = ({ children, props }) => {
         <MainPage>
           <section class="banner">
             <div class="backgroundImage" />
-
+            <Carousel itemsToShow={1}>
+              <div class="bannerImage">1</div>
+              <div class="bannerImage">2</div>
+              <div class="bannerImage">3</div>
+              <div class="bannerImage">4</div>
+            </Carousel>
           </section>
-
           <div>
             <button class="btn-login">
               <Link href="q&a">Question Page</Link>
@@ -129,7 +128,26 @@ const Home = ({ children, props }) => {
           </section>
           <section class="third">
             <h3 class="title">Find My Pet</h3>
+            <div class="missingPet">
+              <div class="missingPetImg"></div>
+            </div>
+            <div class="missingPet">
+              <div class="missingPetImg"></div>
+            </div>
+            <div class="missingPet">
+              <div class="missingPetImg"></div>
+            </div>
+            <div class="missingPet">
+              <div class="missingPetImg"></div>
+            </div>
+            <div class="missingPet">
+              <div class="missingPetImg"></div>
+            </div>
+            
           </section>
+
+
+
         </MainPage>
       </body>
       {children}

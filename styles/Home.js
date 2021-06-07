@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
+
 const MainPage = styled.div
 `
-banner {
+.banner {
   position: relative;
 	justify-content: center;
 	min-height: 80vh;
@@ -31,6 +32,19 @@ banner {
 	opacity: 0.75;
 }
 
+.bannerImage {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  width: 100%;
+  background-color: white;
+  color: black;
+  margin: 15px;
+  font-size: 4em;
+}
 
 button {
   background-color: #798777;
@@ -52,7 +66,7 @@ button {
 
 div {
   position: flex;
-  padding: 10px;
+  padding-top: 20px;
   text-align: center;
 }
 
@@ -68,6 +82,36 @@ div {
   border-radius: 26px;
 }
 
+.missingPet {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  height: 180px;
+  width: 85%;
+  background-color: grey;
+  color: white;
+  margin: 15px;
+  font-size: 35px; 
+  border-radius: 25px;
+  padding: 15px;
+  margin: 20px;
+  text-indent: 200px;
+  text-align: left;
+}
+
+.missingPetImg {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-position: left;
+  background-color: white;
+  width: 160px;
+  height: 160px;
+  border-radius: 20px;
+}
 
 
 
