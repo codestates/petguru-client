@@ -2,12 +2,14 @@ import Head from "next/head";
 import Link from "next/link";
 import SignUpSignIn from "../../styles/SignUpSignIn";
 import { useDispatch } from "react-redux";
-import { registerUser } from "../../actions/user_actions";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
+import { registerUser } from "../../redux/modules/auth";
+import Link from "next/link";
 
 // 리덕스
 // 스토어=> 디스패치 => 액션 => 리듀서 => 스토어
+// 유저 
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -36,8 +38,7 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("password: ", password);
-    console.log("confirmPassword", confirmPassword);
+
     if (password !== confirmPassword) {
       return alert("입력한 비밀번호가 다릅니다!");
     }
@@ -47,7 +48,8 @@ const Register = () => {
       password,
     };
     dispatch(registerUser(body)).then((res) => {
-      if (res.payload.success) {
+      // 상태코드가 200이면 회원가입 되도록 수정
+      if (res.status === 200) {
         alert(res.payload.message);
         router.push("/login");
       } else {
@@ -120,6 +122,11 @@ const Register = () => {
                   회원가입
                 </button>
               </form>
+              <Link href="/login">
+                <h3 style={{marginTop:"10px", cursor:"pointer", textAlign:"center"}}>
+                로그인하러 가기
+                </h3>
+              </Link>
             </div>
           </div>
         </div>

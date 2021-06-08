@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const LandingPageNavBar = ({ children, props }) => {
   return (
-
     <>
         <header>
           <h2>

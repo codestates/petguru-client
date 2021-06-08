@@ -1,30 +1,15 @@
-import { Provider } from "react-redux";
-import { applyMiddleware, createStore, compose } from "redux";
-import promiseMiddleware from "redux-promise";
-import ReduxThunk from "redux-thunk";
-import Reducer from "../reducers";
-import Footer from "../components/Footer";
 import "../styles/globals.css";
+import Footer from "../parts/components/Footer";
 import PropTypes from "prop-types";
+import wrapper from "../redux/configureStore";
 import Head from "next/head";
 
-const createStoreWithMiddleware = applyMiddleware(
-  promiseMiddleware,
-  ReduxThunk,
-)(createStore);
 function App({ Component, pageProps }) {
-  const enhancers = compose(
-    typeof window !== "undefined" && window.devToolsExtension
-      ? window.devToolsExtension()
-      : (f) => f,
-  );
   return (
     <>
-      <Provider store={createStoreWithMiddleware(Reducer, enhancers)}>
         <Head/>
         <Component {...pageProps} />
         <Footer />
-      </Provider>
     </>
   );
 }
@@ -33,7 +18,7 @@ App.propTypes = {
   Component: PropTypes.elementType.isRequired,
 };
 
-export default App;
+export default wrapper.withRedux(App);
 
 /*
 페이지에 공통인 레이아웃을 작성합니다.
