@@ -126,7 +126,6 @@ export default function reducer(state = initialState, action) {
     case UPDATE_COMMENTS_SUCCESS:
     case UPDATE_COMMENTS_ERROR:
       return updateCommentsReducer(state, action);
-    
     default:
       return state;
   }
@@ -195,6 +194,53 @@ function* addPostSaga(action) {
       payload: post,
     })
   } catch (e) {
+    yield put({
+      type: ADD_POST_ERROR,
+      payload: e,
+      error: true
+    })
+  }
+}
+
+function* updatePostSaga(action) {
+  try {
+
+  } catch (e) {
+
+  }
+}
+function* deletePostSaga(action) {
+  try {
+    
+  } catch (e) {
+
+  }
+}
+function* getCommentsSaga() {
+  try {
+
+  } catch(e) {
+
+  }
+}
+function* addCommentsSaga(action) {
+  try {
+    
+  } catch (e) {
+
+  }
+}
+function* updateCommentsSaga(action) {
+  try {
+    
+  } catch (e) {
+    
+  }
+}
+function* deleteCommentsSaga(action) {
+  try {
+
+  } catch (e) {
     
   }
 }
@@ -203,9 +249,15 @@ export function* missingSaga() {
   // 실종 동물 게시물(복수) 가져오기(read)
   yield takeEvery(GET_POSTS, getPostsSaga);
   // 실종 동물 게시물(단일) 가져오기(read)
-  yield takeEvery(GET_POST, getPostSaga);
+  yield takeLatest(GET_POST, getPostSaga);
   // 실종 동물 게시물(단일) 등록하기(create)
-
+  yield takeLatest(ADD_POST, addPostSaga);
   // 실종 동물 게시물(단일) 수정하기(update)
+  yield takeEvery(UPDATE_POST, updatePostSaga);
   // 실종 동물 게시물(단일) 삭제하기(delete)
+  yield takeEvery(DELETE_POST, deletePostSaga);
+  yield takeEvery(GET_COMMENTS, getCommentsSaga);
+  yield takeEvery(ADD_COMMENTS, addCommentsSaga);
+  yield takeEvery(UPDATE_COMMENTS, updateCommentsSaga);
+  yield takeEvery(DELETE_COMMENTS, deleteCommentsSaga);
 }

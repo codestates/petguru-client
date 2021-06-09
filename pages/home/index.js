@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../parts/components/Navbar";
 import PropTypes from "prop-types";
 import MainPage from "../../styles/Home.js";
 import Carousel from "react-elastic-carousel";
