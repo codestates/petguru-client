@@ -23,7 +23,7 @@ const configureStore = (initialState, options) => {
   return store;
 }
 
-const wrapper = wrapper = createWrapper(configureStore, {
+const wrapper =  createWrapper(configureStore, {
   debug: process.env.NODE_ENV === 'development',
 });
 
