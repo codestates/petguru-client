@@ -1,5 +1,5 @@
 /*global kakao*/ 
-import React, {useEffect} from 'react';
+import React, {useEffect, useCallback} from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -60,7 +60,7 @@ const StyledContainer = styled.div`
   .inputSex,
   .inputArea,
   .inputDate,
-  .inputReward,
+  .inputBorn,
   .inputFile,
   .inputDescription {
     width: 95%;
@@ -118,19 +118,15 @@ const StyledContainer = styled.div`
   .inputArea:focus,
   .inputDate:focus,
   .inputFile:focus,
-  .inputReward:focus,
+  .inputBorn:focus,
   .inputDescription:focus {
     outline: 1px solid #000000;
     box-shadow: 0 0 0 1.8pt #000000;
   }
 `;
 
-const MissingWrite = ({ name, title, contents, type, sex, location, missing_date, images, born_year }) => {
-  const makeMarker = () => {
-    const marker = new window.kakao.amps.Marker({});
-
-    marker.setMap()
-  }
+const MissingWrite = ({ name, title, contents, type, sex, location, missing_date, images, born_year, onChangeField }) => {
+  
   useEffect(() => {
     var container = document.getElementById('map');
     var options = {
@@ -145,6 +141,35 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
     });
     marker.setMap(map);
   }, []);
+  
+  
+  const onChangeTitle = useCallback((e) => {
+    onChangeField({ key: 'title', value: e.target.value });
+  }, []);
+  const onChangeName = (e) => {
+    onChangeField({ key: 'name', value: e.target.value });
+  }
+  const onChangeType = (e) => {
+    onChangeField({ key: 'type', value: e.target.value });
+  }
+  const onChangeSex = (e) => {
+    onChangeField({ key: 'sex', value: e.target.value });
+  }
+  const onChangeLocation = (e) => {
+    onChangeField({ key: 'location', value: e.target.value });
+  }
+  const onChangeDate = (e) => {
+    onChangeField({ key: 'missing_date', value: e.target.value });
+  }
+  const onChangeBorn = (e) => {
+    onChangeField({ key: 'born_year', value: e.target.value });
+  }
+  const onChangeContents = (e) => {
+    onChangeField({ key: 'contents', value: e.target.value });
+  }
+  const onChangeImage = (e) => {
+    onChangeField({key: 'images', value: [...e.target.files]})
+  }
 
   return (
     <StyledContainer>
@@ -160,8 +185,10 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             <div className="col75">
               <input
                 type="text"
+                value={title}
                 className="inputTitle"
                 placeholder="제목을 입력해주세요"
+                onChange={onChangeTitle}
               />
             </div>
           </div>
@@ -172,8 +199,10 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             <div className="col75">
               <input
                 type="text"
+                value={name}
                 className="inputName"
                 placeholder="이름을 입력해주세요"
+                onChange={onChangeName}
               />
             </div>
           </div>
@@ -184,8 +213,10 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             <div className="col75">
               <input
                 type="text"
+                value={type}
                 className="inputSpecies"
                 placeholder="반려동물 품종을 입력해주세요"
+                onChange={onChangeType}
               />
             </div>
           </div>
@@ -196,8 +227,9 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             <div className="col75">
               <select
                 name="select"
+                value={sex}
                 className="inputSex"
-                /*onChange*/
+                onChange={onChangeSex}
               >
                 <option value="">선택</option>
                 <option value="암컷">암컷</option>
@@ -212,8 +244,10 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             <div className="col75">
               <input
                 type="text"
+                value={location}
                 className="inputArea"
                 placeholder="지도에 마커를 남겨주세요"
+                onChange={onChangeLocation}
               />
             </div>
           </div>
@@ -224,19 +258,36 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             <div className="col75">
               <input
                 type="date"
+                value={missing_date}
                 className="inputDate"
+                onChange={onChangeDate}
               />
             </div>
           </div>
           <div className="row">
+              <div className="col25">
+                <label for="born">출생 년도</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="number"
+                  value={born_year}
+                  className="inputBorn"
+                  placeholder="출생년도를 입력하세요"
+                  onChange={onChangeBorn}
+                />
+              </div>
+            </div>
+          <div className="row">
             <div className="col25">
-              <label for="img">사진</label>
+              <label for="images">사진</label>
             </div>
             <div className="col75">
               <input
                 type="file"
                 className="inputFile"
                 multiple
+                onChange={onChangeImage}
               />
             </div>
           </div>
@@ -246,12 +297,12 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             </div>
             <div className="col75">
               <textarea
+                value={contents}
                 className="inputDescription"
                 placeholder="내용을 입력하세요"
+                onChange={onChangeContents}
               />
             </div>
-          </div>
-          <div className="submit-button">
           </div>
         </div>
         <div id="map"></div>
