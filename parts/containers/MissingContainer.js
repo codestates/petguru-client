@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useCallback } from 'react';
-import Missing from '../components/Missing';
+import Missing from '../components/missing/Missing';
 
 const missingList = [
   {
