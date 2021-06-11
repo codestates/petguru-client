@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
@@ -25,13 +24,19 @@ const ContentsCard = styled.div`
   .contents-title {
     font-size: 24px;
   }
-  .user-info {
+  .sub-info {
     display: flex;
     align-items: center;
     margin-top: 12px;
   }
-  .user-name {
-    margin-left: 10px;
+  span + span:before {
+    color: #ced4da;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    content: '\\B7';
+  }
+  .btn-detail {
+    align-items: flex-end;
   }
 `;
 
@@ -39,7 +44,7 @@ const CardItem = ({ id, username, url, title }) => {
   const router = useRouter();
 
   const onClick = () => {
-    router.push(`/missingpost/${id}`);
+    router.push(`/missing/${id}`);
   }
   return (
     <ContentsCard onClick={onClick}>
@@ -48,10 +53,14 @@ const CardItem = ({ id, username, url, title }) => {
       </div>
       <div className="contents">
         <span className="contents-title">{ title }</span>
-        <div className="user-info">
-          <Image src="/images/avatar.png" width="20px" height="20px" />
-          <span className="user-name">{username}</span>
+        <div className="sub-info">
+          <span className="user-name">
+            <b>{username}</b>
+          </span>
+          <span>{ new Date().toLocaleDateString() }</span>
         </div>
+        <div>펫 이름</div>
+        <div>내용</div>
       </div>
     </ContentsCard>
   );
