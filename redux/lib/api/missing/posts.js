@@ -5,3 +5,5 @@ export const writePost = ({ title, contents, latitud, longitude, location, image
 }
 
 export const readPost = id => client.get(`api/missing/posts/${id}`);
+
+export const listPosts = () => client.get('api/missing/posts');

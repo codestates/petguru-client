@@ -5,7 +5,6 @@ import { useDispatch } from "react-redux";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { registerUser } from "../../redux/modules/auth";
-import Link from "next/link";
 
 // 리덕스
 // 스토어=> 디스패치 => 액션 => 리듀서 => 스토어

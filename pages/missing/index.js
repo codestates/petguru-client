@@ -9,7 +9,7 @@ export default function MissingMain() {
   const router = useRouter();
 
   const post = () => {
-    router.push('/postmissing')
+    router.push('/missing/write')
   }
   return (
     <>
