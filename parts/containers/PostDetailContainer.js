@@ -9,9 +9,8 @@ import { setOriginalPost } from '../../redux/modules/missing_write';
 const PostDetailContainer = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  console.log(router);
+
   const { postId } = router.query;
-  console.log('postId :', postId);
   // 첫 마운트 시에 포스트 읽기 API 요청
   const { post, error, loading } = useSelector(({ post, loading }) => ({
     post: post.post,
