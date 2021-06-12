@@ -5,6 +5,7 @@ import { readPost, unloadPost } from '../../redux/modules/missing_post';
 import PostDetail from '../components/missing/PostDetail';
 import PostActionButtons from '../components/missing/PostActionButtons';
 import { setOriginalPost } from '../../redux/modules/missing_write';
+import { removePost } from '../../redux/lib/api/missing/posts';
 
 const PostDetailContainer = () => {
   const dispatch = useDispatch();
@@ -33,11 +34,25 @@ const PostDetailContainer = () => {
     router.push('/missing/write');
   };
 
-  // const ownPost = (user && user.id) === (post && post.user.id)
+  const onRemove = async () => {
+    try {
+      await removePost(postId);
+      router.push('/missing');
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  const ownPost = (user && user.id) === (post && post.user.id)
 
   return (
     <>
-      <PostDetail post={post} loading={loading} error={error} actionButtons={<PostActionButtons onEdit={onEdit} />}/>
+      <PostDetail
+        post={post}
+        loading={loading}
+        error={error}
+        actionButtons={ownPost && <PostActionButtons onEdit={onEdit} onRemove={onRemove} />}
+      />
     </>
   );
 }

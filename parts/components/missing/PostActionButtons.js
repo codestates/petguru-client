@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import AskRemoveModal from '../AskRemoveModal';
 
 const PostActionButtonsBlock = styled.div`
   display: flex;
@@ -27,11 +28,32 @@ const ActionButton = styled.button`
   }
 `;
 
-const PostActionButtons = ({onEdit}) => {
+const PostActionButtons = ({ onEdit, onRemove }) => {
+  const [modal, setModal] = useState(false);
+
+  const onEdit = () => {
+    console.log('수정합니다');
+  }
+  const onRemoveClick = () => {
+    setModal(true);
+  };
+  const onCancel = () => {
+    console.log('취소');
+    setModal(false);
+  }
+  const onConfirm = () => {
+    setModal(false);
+    onRemove();
+  };
   return (
     <PostActionButtonsBlock>
-      <ActionButton onEdit={onEdit}>수정</ActionButton>
-      <ActionButton>삭제</ActionButton>
+      <ActionButton onClick={onEdit}>수정</ActionButton>
+      <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
+      <AskRemoveModal
+        visible={moadl}
+        onConfirm={onConfirm}
+        onCancel={onCancel}
+      />
     </PostActionButtonsBlock>
   );
 }
