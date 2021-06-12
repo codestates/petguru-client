@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeField, initialize } from '../../redux/modules/missing_write';
-import MissingWrite from '../components/missing/MissingWrite';
+import MissingWrite from '../components/missing/write/MissingWrite';
 
 const MissingWriteContainer = () => {
   const dispatch = useDispatch();

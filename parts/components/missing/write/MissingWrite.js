@@ -1,22 +1,13 @@
 /*global kakao*/ 
-import React, {useEffect, useCallback} from 'react';
+import React, {useEffect, useCallback, useRef} from 'react';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
-  .container {
   width: 100%;
   padding-right: 16px;
   padding-left: 16px;
   margin-right: auto;
   margin-left: auto;
-}
-
-  .registerLogo {
-    width: 180px;
-    height: 90px;
-    margin-top: -39px;
-    margin-left: 71px;
-  }
 
   .registerTitle {
     text-align: left !important;
@@ -38,7 +29,7 @@ const StyledContainer = styled.div`
   }
 
   .petRegister {
-    width: 40%;
+    width: 100%;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px 0 rgb(96 96 96 / 16%),
       2px 10px 23px 0 rgb(96 96 96 / 13%);
@@ -47,7 +38,7 @@ const StyledContainer = styled.div`
   }
 
   #map {
-    width: 40%;
+    width: 100%;
     height: 500px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px 0 rgb(96 96 96 / 16%),
@@ -141,7 +132,6 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
     });
     marker.setMap(map);
   }, []);
-  
   
   const onChangeTitle = useCallback((e) => {
     onChangeField({ key: 'title', value: e.target.value });

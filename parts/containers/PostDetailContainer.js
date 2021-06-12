@@ -3,6 +3,8 @@ import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { readPost, unloadPost } from '../../redux/modules/missing_post';
 import PostDetail from '../components/missing/PostDetail';
+import PostActionButtons from '../components/missing/PostActionButtons';
+import { setOriginalPost } from '../../redux/modules/missing_write';
 
 const PostDetailContainer = () => {
   const dispatch = useDispatch();
@@ -15,6 +17,7 @@ const PostDetailContainer = () => {
     post: post.post,
     error: post.error,
     loading: loading,
+    // user: user.user,
   }));
 
   useEffect(() => {
@@ -25,9 +28,16 @@ const PostDetailContainer = () => {
     };
   }, [dispatch, postId]);
 
+  const onEdit = () => {
+    dispatch(setOriginalPost(post));
+    router.push('/missing/write');
+  };
+
+  // const ownPost = (user && user.id) === (post && post.user.id)
+
   return (
     <>
-      <PostDetail post={post} loading={loading} error={error} />
+      <PostDetail post={post} loading={loading} error={error} actionButtons={<PostActionButtons onEdit={onEdit} />}/>
     </>
   );
 }
