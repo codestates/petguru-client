@@ -1,13 +1,13 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { writePost } from '../../redux/modules/missing_write';
-import WriteActionButtons from '../components/missing/WriteActionButtons';
+import { writePost, updatePost } from '../../redux/modules/missing_write';
+import WriteActionButtons from '../components/missing/write/WriteActionButtons';
 
 const WriteActionButtonsContainer = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { name, title, contents, type, sex, location, missing_date, images, born_year, post, postError } = useSelector(({ write }) => ({
+  const { name, title, contents, type, sex, location, missing_date, images, born_year, post, postError, originalPostId } = useSelector(({ write }) => ({
     name: write.name,
     title: write.title,
     contents: write.contents,
@@ -18,11 +18,29 @@ const WriteActionButtonsContainer = () => {
     images: write.images,
     born_year: write.born_year,
     post: write.post,
-    postError: write.postError
+    postError: write.postError,
+    originalPostId: write.originalPostId,
   }));
 
   // 포스트 등록
   const onPublish = () => {
+    if (originalPostId) {
+      dispatch(updatePost
+        ({
+          name,
+          title,
+          contents,
+          type,
+          sex,
+          location,
+          missing_date,
+          images,
+          born_year,
+          id: originalPostId
+        })
+      );
+      return;
+    }
     dispatch(
       writePost({
         name,
@@ -54,7 +72,7 @@ const WriteActionButtonsContainer = () => {
     }
   }, [post, postError]);
   return (
-    <WriteActionButtons onPublish={onPublish} onCancel={onCancel} />
+    <WriteActionButtons onPublish={onPublish} onCancel={onCancel} isEdit={!originalPostId} />
   );
 }
 

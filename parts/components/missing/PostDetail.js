@@ -32,21 +32,30 @@ const PostContent = styled.div`
   margin-bottom: 3rem;
 `;
 
-const PostDetail = ({ post, error, loading }) => {
+const PostDetail = ({ post, error, loading, actionButtons }) => {
   // 에러 발생 시
-  if (error) {
-    if (error.response && error.response.status === 404) {
-      return <PostViewerBlock>존재하지 않는 게시물입니다.</PostViewerBlock>
-    }
-    return <PostViewerBlock>오류가 발생했습니다.</PostViewerBlock>
-  }
+  // if (error) {
+  //   if (error.response && error.response.status === 404) {
+  //     return <PostViewerBlock>존재하지 않는 게시물입니다.</PostViewerBlock>
+  //   }
+  //   return <PostViewerBlock>오류가 발생했습니다.</PostViewerBlock>
+  // }
   
   // 로딩 || 포스트 데이터가 없을 때
-  if (loading || !post) {
-    return null;
-  }
+  // if (loading || !post) {
+  //   return null;
+  // }
   // 포스트 데이터가 있을 때
-  const { username, name, title, contents, type, sex, born_year, location, missing_date, image_url, created_at } = post; 
+  // const { username, name, title, contents, type, sex, born_year, location, missing_date, image_url, created_at } = post; 
+  const title = "테스트"
+  const username = "손영산"
+  const name = "깨비"
+  const type = "푸들"
+  const sex = "수컷"
+  const born_year = 2017
+  const location = "원흥역"
+  const missing_date = "3 days ago"
+  const contents = "깨비를 찾아주세요 ㅠ"
   return (
     <PostViewerBlock>
       <PostHead>
@@ -55,9 +64,10 @@ const PostDetail = ({ post, error, loading }) => {
           <span>
             <b>{username}</b>
           </span>
-          <span>글 작성일: {new Date(created_at).toLocaleDateString()}</span>
+          <span>글 작성일: {new Date().toLocaleDateString()}</span>
         </SubInfo>
       </PostHead>
+      { actionButtons }
       <PostContent>
         <div>이미지 공간</div>
         <div>펫 이름: {name}</div>

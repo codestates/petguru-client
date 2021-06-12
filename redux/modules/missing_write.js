@@ -3,16 +3,25 @@ import { createAction, handleActions } from 'redux-actions';
 import * as postsAPI from '../lib/api/missing/posts';
 import createRequestSaga, { createRequestActionTypes } from '../lib/createRequestActionTypes';
 
-const INITIALIZE = 'missing/INITIALIZE';
-const CHANGE_FIELD = 'missing/CHANGE_FIELD';
+const INITIALIZE = 'write/INITIALIZE';
+const CHANGE_FIELD = 'write/CHANGE_FIELD';
+const SET_ORIGINAL_POST = 'wrtie/SET_ORIGINAL_POST';
 
 export const initialize = createAction(INITIALIZE);
 export const changeField = createAction(CHANGE_FIELD, ({ key, value }) => ({ key, value }));
+export const setOriginalPost = createAction(SET_ORIGINAL_POST, post => post);
+
 const [
   WRITE_POST,
   WRITE_POST_SUCCESS,
   WRITE_POST_ERROR
-] = createRequestActionTypes('write/WRITE_POST'); // 포스트 작성
+] = createRequestActionTypes('write/WRITE_POST'); // 게시물 작성
+const [
+  UPDATE_POST,
+  UPDATE_POST_SUCCESS,
+  UPDATE_POST_ERROR
+] = createRequestActionTypes('write/UPDATE_POST'); // 게시물 수정
+
 export const writePost = createAction(WRITE_POST, ({
   title,
   contents,
@@ -38,12 +47,46 @@ export const writePost = createAction(WRITE_POST, ({
   type,
   sex,
 }));
+export const updatePost = createAction(
+  UPDATE_POST,
+  ({
+    id,
+    title,
+    contents,
+    latitude,
+    logitude,
+    location,
+    images,
+    missing_date,
+    born_year,
+    name,
+    type,
+    sex,
+  }) => ({
+    id,
+    title,
+    contents,
+    latitude,
+    logitude,
+    location,
+    images,
+    missing_date,
+    born_year,
+    name,
+    type,
+    sex,
+  })
+)
 
 // saga
 const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writePost);
+const updatePostSaga = createRequestSaga(UPDATE_POST, postsAPI.updatePost);
+
 export function* writeSaga() {
   yield takeLatest(WRITE_POST, writePostSaga);
+  yield takeLatest(UPDATE_POST, updatePostSaga);
 }
+
 
 const initialState = {
   title: '',
@@ -59,6 +102,7 @@ const initialState = {
   sex: '',
   post: null,
   postError: null,
+  originalPostId: null,
 }
 
 const write = handleActions(
@@ -81,6 +125,19 @@ const write = handleActions(
     }),
     // 포스트 작성 실패
     [WRITE_POST_ERROR]: (state, { payload: postError }) => ({
+      ...state,
+      postError,
+    }),
+    [SET_ORIGINAL_POST]: (state, { payload: post }) => ({
+      ...state,
+      post,
+      orginalPostId: post.id,
+    }),
+    [UPDATE_POST_SUCCESS]: (state, { payload: post }) => ({
+      ...state,
+      post,
+    }),
+    [UPDATE_POST_ERROR]: (state, { payload: postError }) => ({
       ...state,
       postError,
     }),
