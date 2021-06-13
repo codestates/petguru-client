@@ -1,61 +1,77 @@
+import React, { useState, useEffect } from 'react';
 import Head from "next/head";
 import Link from "next/link";
 import SignUpSignIn from "../../styles/SignUpSignIn";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { changeField, initializeForm, register } from "../../redux/modules/auth";
 import { useRouter } from "next/router";
-import { useCallback, useState } from "react";
-import { registerUser } from "../../redux/modules/auth";
+import styled from 'styled-components';
 
-// 리덕스
-// 스토어=> 디스패치 => 액션 => 리듀서 => 스토어
-// 유저 
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`;
 
 const Register = () => {
+  const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const router = useRouter();
+  const { form, auth, authError } = useSelector(({ auth }) => ({
+    form: auth.register,
+    auth: auth.auth,
+    authError: auth.authError
+  }));
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  // const [Error, setError] = useState('');
+  const onChange = e => {
+    const { value, name } = e.target;
+    console.log('onChange이벤트');
+    console.log(value);
+    console.log(name);
+    dispatch(changeField({
+        form: 'register',
+        key: name,
+        value
+      })
+    )
+  }
 
-  const onChangeUsername = useCallback((e) => {
-    setUsername(e.target.value);
-  }, []);
-  const onChangeEmail = useCallback((e) => {
-    setEmail(e.target.value);
-  }, []);
-  const onChangePassword = useCallback((e) => {
-    console.log(e.target.value);
-    setPassword(e.target.value);
-  });
-  const onChangeConfrimPassword = useCallback((e) => {
-    console.log(e.target.value);
-    setConfirmPassword(e.target.value);
-  });
-
-  const handleSubmit = (e) => {
+  const onSubmit = e => {
     e.preventDefault();
-
-    if (password !== confirmPassword) {
-      return alert("입력한 비밀번호가 다릅니다!");
+    const { username, email, password, passwordConfirm } = form;
+    if ([username, email, password, passwordConfirm].includes('')) {
+      setError('빈 칸을 모두 입력하세요.');
+      return;
     }
-    let body = {
-      username,
-      email,
-      password,
-    };
-    dispatch(registerUser(body)).then((res) => {
-      // 상태코드가 200이면 회원가입 되도록 수정
-      if (res.status === 200) {
-        alert(res.payload.message);
-        router.push("/login");
-      } else {
-        alert("회원가입에 실패했습니다.");
-      }
-    });
+    if (password !== passwordConfirm) {
+      setError('비밀번호가 일치하지 않습니다.');
+      dispatch(changeField({ form: 'register', key: 'password', value: '' }));
+      dispatch(changeField({ form: 'register', key: 'passwordConfirm', value: '' }));
+      return;
+    }
+    dispatch(register({ username, email, password }));
   };
+  
+  useEffect(() => {
+    dispatch(initializeForm('register'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (authError) {
+      if (authError.response.status === 409) {
+        setError('이미 존재하는 이메일입니다.');
+        return;
+      }
+      setError('회원가입 실패');
+      return;
+    }
+    if (auth) {
+      alert('회원가입 완료');
+      console.log(auth);
+      router.push('/login');
+    }
+  }, [auth, authError]);
 
   return (
     <>
@@ -83,40 +99,51 @@ const Register = () => {
               회원가입 해주세요.
             </p>
             <div className="user-input">
-              <form name="loginEmail" onSubmit={handleSubmit}>
+              <form name="loginEmail" onSubmit={onSubmit}>
                 <fieldset>
                   <legend>사용자 정보 입력</legend>
-                  <label htmlFor="email">Name</label>
+                  <label htmlFor="name">Name</label>
                   <input
                     type="text"
-                    name={username}
-                    id="userEmail"
+                    id="name"
+                    name="username"
                     className="user-email"
-                    onChange={onChangeUsername}
+                    placeholder="이름"
+                    onChange={onChange}
+                    value={form.username}
                   />
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
-                    name={email}
-                    id="userEmail"
+                    id="email"
+                    name="email"
                     className="user-email"
-                    onChange={onChangeEmail}
+                    placeholder="이메일"
+                    onChange={onChange}
+                    value={form.email}
                   />
-                  <label htmlFor="userPassword">Password</label>
+                  <label htmlFor="password">Password</label>
                   <input
                     type="password"
-                    name={password}
+                    id="password"
+                    name="password"
                     className="user-password"
-                    onChange={onChangePassword}
+                    placeholder="비밀번호"
+                    onChange={onChange}
+                    value={form.password}
                   />
-                  <label htmlFor="confirmPassword">Confirm Password</label>
+                  <label htmlFor="passwordConfirm`">Confirm Password</label>
                   <input
                     type="password"
-                    name={confirmPassword}
+                    id="passwordConfirm"
+                    name="passwordConfirm"
                     className="user-password"
-                    onChange={onChangeConfrimPassword}
+                    placeholder="비밀번호 확인"
+                    onChange={onChange}
+                    value={form.passwordConfirm}
                   />
                 </fieldset>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <button type="submit" className="btn-login">
                   회원가입
                 </button>

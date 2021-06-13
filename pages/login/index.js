@@ -58,7 +58,7 @@ export default function Login() {
       return;
     }
     if (auth) {
-      console.log('로그인 성공');
+      alert('로그인 성공');
       dispatch(check());
     }
   }, [auth, authError, dispatch]);
@@ -108,7 +108,7 @@ export default function Login() {
                     id="email"
                     className="user-email"
                     onChange={onChange}
-
+                    value={form.email}
                     required
                   />
                   <label htmlFor="password">Password</label>
@@ -118,7 +118,7 @@ export default function Login() {
                     id="password"
                     className="user-password"
                     onChange={onChange}
-
+                    value={form.password}
                     required
                   />
                 </fieldset>
