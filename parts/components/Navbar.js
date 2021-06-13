@@ -1,12 +1,20 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link';
-import { useSelector } from 'react-redux';
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../redux/modules/user';
 
 
 const Navbar = ({ children, props }) => {
-  // const { user } = useSelector(({ user }) => ({
-  //   user: user.user
-  // }));
+  const router = useRouter();
+  const { user } = useSelector(({ user }) => ({
+    user: user.user
+  }));
+  const dispatch = useDispatch();
+  const onLogout = () => {
+    dispatch(logout());
+    router.push('/');
+  }
   return (
     <>
         <header>
@@ -17,8 +25,8 @@ const Navbar = ({ children, props }) => {
             <li>
               <a><Link href="/mypage">MyPage</Link></a>
             </li>
-            <li>
-              <a><Link href="/">LogOut</Link></a>
+            <li onClick={onLogout}>
+              Logout
             </li>
           </nav>
         </header>
