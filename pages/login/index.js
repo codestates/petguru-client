@@ -1,45 +1,78 @@
-import React, { useState, useCallback } from "react";
+import React, { useEffect, useState } from "react";
+import styled from 'styled-components';
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useDispatch } from "react-redux";
-import { loginUser } from "../../redux/modules/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { changeField, initializeForm, login } from "../../redux/modules/auth";
+import { check } from '../../redux/modules/user';
 import SignUpSignIn from "../../styles/SignUpSignIn";
+
+const ErrorMessage = styled.div`
+  color: red;
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 1rem;
+`;
 
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
+  const [error, setError] = useState(null);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const onChangeEmail = useCallback((e) => {
-    setEmail(e.target.value);
-  }, []);
-
-  const onChangePassword = useCallback((e) => {
-    setPassword(e.target.value);
-  }, []);
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    let body = {
-      email,
-      password,
-    };
-
-    dispatch(loginUser(body)).then((res) => {
-      // 상태코드가 200이면 로그인 되도록 수정
-      if (res.payload.loginSuccess) {
-        console.log('1');
-        router.push("/home");
-        alert(res.payload.message);
-      } else {
-        alert(res.payload.message);
-      }
-    });
+  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
+    form: auth.login, // form state를 로그인 form으로 설정
+    auth: auth.auth,
+    authError: auth.authError,
+    user: user.user
+  }));
+  // 인풋 변경 핸들러
+  const onChange = e => {
+    const { value, name } = e.target;
+    dispatch(
+      changeField({
+        form:'login',
+        key: name,
+        value
+      })
+    );
   };
+  // 폼 등록 핸들러
+  const onSubmit = e => {
+    e.preventDefault();
+    const { email, password } = form;
+    dispatch(login({email, password}))
+  }
+
+  // 컴포넌트 첫 렌더링 => 폼 초기화
+  useEffect(() => {
+    dispatch(initializeForm('login'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (authError) {
+      console.log('오류 발생');
+      console.log(authError);
+      setError('로그인 실패');
+      console.log(error);
+      return;
+    }
+    if (auth) {
+      console.log('로그인 성공');
+      dispatch(check());
+    }
+  }, [auth, authError, dispatch]);
+
+  useEffect(() => {
+    if (user) {
+      router.push('/home');
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [router, user]);
 
   return (
     <>
@@ -65,27 +98,31 @@ export default function Login() {
               로그인 해주세요.
             </p>
             <div className="user-input">
-              <form name="loginEmail" onSubmit={handleSubmit}>
+              <form name="loginEmail" onSubmit={onSubmit}>
                 <fieldset>
                   <legend>사용자 정보 입력</legend>
                   <label htmlFor="email">Email</label>
                   <input
                     type="email"
-                    name="userEmail"
-                    id="userEmail"
+                    name="email"
+                    id="email"
                     className="user-email"
-                    onChange={onChangeEmail}
+                    onChange={onChange}
+
                     required
                   />
-                  <label htmlFor="userPassword">Password</label>
+                  <label htmlFor="password">Password</label>
                   <input
                     type="password"
-                    name="userPassword"
+                    name="password"
+                    id="password"
                     className="user-password"
-                    onChange={onChangePassword}
+                    onChange={onChange}
+
                     required
                   />
                 </fieldset>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <button type="submit" className="btn-login">
                   로그인
                 </button>

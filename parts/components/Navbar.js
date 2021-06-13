@@ -1,8 +1,12 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 
 
-const Navbar = ({ children, props}) => {
+const Navbar = ({ children, props }) => {
+  // const { user } = useSelector(({ user }) => ({
+  //   user: user.user
+  // }));
   return (
     <>
         <header>
