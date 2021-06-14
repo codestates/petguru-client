@@ -28,7 +28,7 @@ const ActionButton = styled.button`
   }
 `;
 
-const PostActionButtons = ({ onEdit, onRemove }) => {
+const PostActionButtons = () => {
   const [modal, setModal] = useState(false);
 
   const onEdit = () => {
