@@ -12,10 +12,11 @@ const INITIALIZE_FORM = 'auth/INITIALIZE_FORM';
 const [REGISTER, REGISTER_SUCCESS, REGISTER_ERROR] = createRequestActionTypes(
   'auth/REGISTER'
 );
-
 const [LOGIN, LOGIN_SUCCESS, LOGIN_ERROR] = createRequestActionTypes(
   'auth/LOGIN'
 );
+// 구글 로그인
+const [GOOGLE, GOOGLE_SUCCESS, GOOGLE_ERROR] = createRequestActionTypes('auth/GOOGLE');
 
 export const changeField = createAction(
   CHANGE_FIELD,
@@ -35,13 +36,22 @@ export const login = createAction(LOGIN, ({ email, password }) => ({
   email,
   password
 }));
+export const googleLogin = createAction(GOOGLE, ({ email, name, googleId }) => ({
+  email,
+  name,
+  googleId
+})) 
 
 // saga 생성
 const registerSaga = createRequestSaga(REGISTER, authAPI.register);
 const loginSaga = createRequestSaga(LOGIN, authAPI.login);
+// google
+const googleSaga = createRequestSaga(GOOGLE, authAPI.googleLogin);
+
 export function* authSaga() {
   yield takeLatest(REGISTER, registerSaga);
   yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(GOOGLE, googleSaga);
 }
 
 const initialState = {
@@ -54,6 +64,11 @@ const initialState = {
   login: {
     email: '',
     password: ''
+  },
+  googleLogin: {
+    email: '',
+    name: '',
+    googleId:'',
   },
   auth: null,
   authError: null
@@ -89,6 +104,15 @@ const auth = handleActions(
     }),
     // 로그인 실패
     [LOGIN_ERROR]: (state, { payload: error }) => ({
+      ...state,
+      authError: error
+    }),
+    [GOOGLE_SUCCESS]: (state, { payload: auth }) => ({
+      ...state,
+      authError: null,
+      auth
+    }),
+    [GOOGLE_ERROR]: (state, { payload: error }) => ({
       ...state,
       authError: error
     })
