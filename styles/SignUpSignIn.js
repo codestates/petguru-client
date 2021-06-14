@@ -31,6 +31,7 @@ const SignUpSignIn = styled.div
   form {
     display: block;
     margin-top: 0em;
+    margin-bottom: 20px;
   }
   fieldset {
     display: block;
