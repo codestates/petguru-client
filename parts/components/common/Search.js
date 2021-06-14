@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 
 const SearchContainer = styled.div`
-  width: 40%;
-  margin: 10px 0 10px 0;
+  width: 50%;
+  margin: 30px;
+  padding: 20px;
 `;
 
 const SearchBox = styled.div`
@@ -15,13 +16,13 @@ const SearchBox = styled.div`
 const SearchInput = styled.input`
   width: 100%;
   padding: 10px;
-  border: 4px solid #111d5e;
+  border: 3px solid #414a4f;
   border-radius:10px 0 0 10px ;
   border-right: none;
   outline: none;
   font-size: 20px;
-  color: tomato;
-  background: none;
+  color: black;
+  background: white;
 `;
 
 const SearchButton = styled.button`
@@ -30,12 +31,12 @@ const SearchButton = styled.button`
   width: 60px;
   outline: none;
   cursor: pointer;
-  border: 4px solid #111d5e;
+  border: 3px solid #414a4f;
   border-radius: 0 10px 10px 0 ;
   border-left: none;
-  background: none;
+  background: white;
   font-size: 20px;
-  border-left: 4px solid #111d5e;
+  border-left: 3px solid #414a4f;
 `;
 
 const Search = () => {
