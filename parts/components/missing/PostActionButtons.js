@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import styled from 'styled-components';
 import AskRemoveModal from '../AskRemoveModal';
 
@@ -50,7 +50,7 @@ const PostActionButtons = () => {
       <ActionButton onClick={onEdit}>수정</ActionButton>
       <ActionButton onClick={onRemoveClick}>삭제</ActionButton>
       <AskRemoveModal
-        visible={moadl}
+        visible={modal}
         onConfirm={onConfirm}
         onCancel={onCancel}
       />

@@ -59,7 +59,7 @@ const MissingContainer = () => {
       posts: posts.posts,
       error: posts.error,
       loading: loading,
-      // user: user.user,
+      user: user.user,
     }),
   );
 

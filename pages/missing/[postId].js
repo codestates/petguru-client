@@ -3,11 +3,13 @@ import Navbar from "../../parts/components/Navbar";
 import PostDetailContainer from "../../parts/containers/PostDetailContainer";
 
 const Post = () => {
-
+  const router = useRouter();
+  const { postId } = router.query;
+  
   return (
     <>
       <Navbar />
-      <PostDetailContainer />
+      <PostDetailContainer postId={postId} />
     </>
   );
 }
