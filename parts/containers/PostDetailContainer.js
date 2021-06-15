@@ -7,11 +7,9 @@ import PostActionButtons from '../components/missing/PostActionButtons';
 import { setOriginalPost } from '../../redux/modules/missing_write';
 import { removePost } from '../../redux/lib/api/missing/posts';
 
-const PostDetailContainer = () => {
+const PostDetailContainer = ({postId}) => {
   const dispatch = useDispatch();
-  const router = useRouter();
 
-  const { postId } = router.query;
   // 첫 마운트 시에 포스트 읽기 API 요청
   const { post, error, loading } = useSelector(({ post, loading }) => ({
     post: post.post,
@@ -42,7 +40,7 @@ const PostDetailContainer = () => {
     }
   }
 
-  const ownPost = (user && user.id) === (post && post.user.id)
+  // const ownPost = (user && user.id) === (post && post.user.id)
 
   return (
     <>
@@ -50,7 +48,7 @@ const PostDetailContainer = () => {
         post={post}
         loading={loading}
         error={error}
-        actionButtons={ownPost && <PostActionButtons onEdit={onEdit} onRemove={onRemove} />}
+        actionButtons={<PostActionButtons onEdit={onEdit} onRemove={onRemove} />}
       />
     </>
   );

@@ -1,0 +1,36 @@
+.mapBox {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffd22e;
+}
+
+#main_map {
+  width: 95%;
+  height: 86%;
+  margin: 0.2% 2.5% 2.5% 2.5%;
+}
+
+.main_map_nav {
+  height: 10%;
+  display: flex;
+  /* justify-content: center; */
+}
+
+.mapLogo {
+  position: fixed;
+}
+
+.mapTitle {
+  height: 10%;
+  margin-top: 2.2rem;
+  font-size: 1.6rem;
+  margin-left: 12rem;
+}
+
+.mapSubTitle {
+  height: 10%;
+  margin-top: 2.7rem;
+  font-size: 1.2rem;
+  margin-left: 0.5rem;
+}

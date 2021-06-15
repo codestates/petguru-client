@@ -12,13 +12,13 @@ export const check = createAction(CHECK);
 export const logout = createAction(LOGOUT);
 
 const checkSaga = createRequestSaga(CHECK, authAPI.check);
-function checkErrorSaga() {
-  try {
-    localStorage.removeItem('user');
-  } catch (e) {
-    console.log(e);
-  }
-}
+// function checkErrorSaga() {
+//   try {
+//     localStorage.removeItem('user');
+//   } catch (e) {
+//     console.log(e);
+//   }
+// }
 
 function* logoutSaga() {
   try {
@@ -31,7 +31,7 @@ function* logoutSaga() {
 
 export function* userSaga() {
   yield takeLatest(CHECK, checkSaga);
-  yield takeLatest(CHECK_ERROR, checkErrorSaga);
+  // yield takeLatest(CHECK_ERROR, checkErrorSaga);
   yield takeLatest(LOGOUT, logoutSaga);
 }
 
