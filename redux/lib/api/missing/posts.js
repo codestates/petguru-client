@@ -1,7 +1,7 @@
 import client from '../client';
 
-export const writePost = ({ title, contents, latitude, longitude, location, image_url, name, type, sex, born_year }) => {
-  client.post('/api/missing/posts', { title, contents, latitude, longitude, location, image_url, name, type, sex, born_year });
+export const writePost = ({ formData }) => {
+  client.post('/api/missing/posts', { formData });
 }
 
 export const readPost = id => client.get(`api/missing/posts/${id}`);
