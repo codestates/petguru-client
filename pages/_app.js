@@ -7,9 +7,9 @@ import Head from "next/head";
 function App({ Component, pageProps }) {
   return (
     <>
-        <Head/>
-        <Component {...pageProps} />
-        <Footer />
+      <Head></Head>
+      <Component {...pageProps} />
+      <Footer />
     </>
   );
 }

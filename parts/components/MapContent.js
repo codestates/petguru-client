@@ -14,8 +14,8 @@ const MapContent = () => {
 
   // 첫 로드 시에 여러 개의 마커를 가지고 옴
   useEffect(() => {
-    postMarker();
-    // submitMarkers();
+    // postMarker();
+    submitMarkers();
   }, []);
 
   return <MapContents id="map" />;

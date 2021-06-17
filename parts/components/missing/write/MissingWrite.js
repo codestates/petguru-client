@@ -1,6 +1,8 @@
-/*global kakao*/ 
-import React, {useEffect, useCallback, useRef} from 'react';
-import styled from 'styled-components';
+/*global kakao*/
+import React, { useEffect, useCallback, useRef } from "react";
+import styled from "styled-components";
+import axios from 'axios';
+import { useDispatch } from "react-redux";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -116,50 +118,95 @@ const StyledContainer = styled.div`
   }
 `;
 
-const MissingWrite = ({ name, title, contents, type, sex, location, missing_date, images, born_year, onChangeField }) => {
-  
-  useEffect(() => {
-    var container = document.getElementById('map');
-    var options = {
-      center: new kakao.maps.LatLng(37.556225, 126.972448),
-      level: 3
+const MissingWrite = ({
+  name,
+  title,
+  contents,
+  type,
+  sex,
+  location,
+  missing_date,
+  images,
+  born_year,
+  longitude,
+  latitude,
+  onChangeField,
+}) => {
+  const displayMarker = (map) => {
+    const marker = new window.kakao.maps.Marker({});
+
+    marker.setMap(map);
+
+    kakao.maps.event.addListener(map, "click", function (mouseEvent) {
+      // 클릭한 위도, 경도 정보를 가져옵니다
+      const latlng = mouseEvent.latLng;
+
+      // 마커 위치를 클릭한 위치로 옮깁니다
+      marker.setPosition(latlng);
+      // console.log("displayMarker:", mouseEvent.latLng.La);
+    });
+
+    kakao.maps.event.addListener(map, "click", (mouseEvent) => {
+      axios
+        .get(
+          `https://dapi.kakao.com//v2/local/geo/coord2address.json?x=${mouseEvent.latLng.La}&y=${mouseEvent.latLng.Ma}`,
+          {
+            headers: {
+              Authorization: "KakaoAK 6f091c3ba04ddedd69dacd02f83da356",
+            },
+          },
+        )
+        .then((res) => {
+          onChangeField({ key: "location", value: res.data.documents[0].address.address_name, });
+          onChangeField({ key: "latitude", value: mouseEvent.latLng.La, })
+          onChangeField({key: "longitude", value: mouseEvent.latLng.Ma,})
+        });
+    });
+  };
+
+  const mapScript = () => {
+    let container = document.getElementById("map");
+
+    let options = {
+      //지도를 생성할 때 필요한 기본 옵션
+      center: new kakao.maps.LatLng(37.508502, 127.074719), //지도의 중심좌표
+      level: 5, //지도의 레벨(확대, 축소 정도)
     };
 
+    //지도 생성 및 객체 리턴
     var map = new kakao.maps.Map(container, options);
-    var markerPosition = new kakao.maps.LatLng(37.556225, 126.972448);
-    var marker = new kakao.maps.Marker({
-      position: markerPosition
-    });
-    marker.setMap(map);
+
+    displayMarker(map);
+  }
+
+  useEffect(() => {
+    mapScript();
   }, []);
-  
+
   const onChangeTitle = useCallback((e) => {
-    onChangeField({ key: 'title', value: e.target.value });
+    onChangeField({ key: "title", value: e.target.value });
   }, []);
   const onChangeName = (e) => {
-    onChangeField({ key: 'name', value: e.target.value });
-  }
+    onChangeField({ key: "name", value: e.target.value });
+  };
   const onChangeType = (e) => {
-    onChangeField({ key: 'type', value: e.target.value });
-  }
+    onChangeField({ key: "type", value: e.target.value });
+  };
   const onChangeSex = (e) => {
-    onChangeField({ key: 'sex', value: e.target.value });
-  }
-  const onChangeLocation = (e) => {
-    onChangeField({ key: 'location', value: e.target.value });
-  }
+    onChangeField({ key: "sex", value: e.target.value });
+  };
   const onChangeDate = (e) => {
-    onChangeField({ key: 'missing_date', value: e.target.value });
-  }
+    onChangeField({ key: "missing_date", value: e.target.value });
+  };
   const onChangeBorn = (e) => {
-    onChangeField({ key: 'born_year', value: e.target.value });
-  }
+    onChangeField({ key: "born_year", value: e.target.value });
+  };
   const onChangeContents = (e) => {
-    onChangeField({ key: 'contents', value: e.target.value });
-  }
+    onChangeField({ key: "contents", value: e.target.value });
+  };
   const onChangeImage = (e) => {
-    onChangeField({key: 'images', value: [...e.target.files]})
-  }
+    onChangeField({ key: "images", value: e.target.value });
+  };
 
   return (
     <StyledContainer>
@@ -237,7 +284,6 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
                 value={location}
                 className="inputArea"
                 placeholder="지도에 마커를 남겨주세요"
-                onChange={onChangeLocation}
               />
             </div>
           </div>
@@ -255,19 +301,19 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
             </div>
           </div>
           <div className="row">
-              <div className="col25">
-                <label for="born">출생 년도</label>
-              </div>
-              <div className="col75">
-                <input
-                  type="number"
-                  value={born_year}
-                  className="inputBorn"
-                  placeholder="출생년도를 입력하세요"
-                  onChange={onChangeBorn}
-                />
-              </div>
+            <div className="col25">
+              <label for="born">출생 년도</label>
             </div>
+            <div className="col75">
+              <input
+                type="text"
+                value={born_year}
+                className="inputBorn"
+                placeholder="출생년도를 입력하세요"
+                onChange={onChangeBorn}
+              />
+            </div>
+          </div>
           <div className="row">
             <div className="col25">
               <label for="images">사진</label>
@@ -276,7 +322,6 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
               <input
                 type="file"
                 className="inputFile"
-                multiple
                 onChange={onChangeImage}
               />
             </div>
@@ -298,8 +343,7 @@ const MissingWrite = ({ name, title, contents, type, sex, location, missing_date
         <div id="map"></div>
       </div>
     </StyledContainer>
-
   );
-}
+};
 
 export default MissingWrite;
