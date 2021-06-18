@@ -1,7 +1,7 @@
 /*global kakao*/
 import React, { useEffect, useCallback, useRef } from "react";
 import styled from "styled-components";
-import axios from 'axios';
+import axios from "axios";
 import { useDispatch } from "react-redux";
 
 const StyledContainer = styled.div`
@@ -11,9 +11,12 @@ const StyledContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
+
   .registerTitle {
     text-align: left !important;
-    margin-left: 10%;
+    padding-bottom: 30px;
+    font-size: 30px;
+    font-weight: bold;
   }
 
   .wrapper {
@@ -36,7 +39,6 @@ const StyledContainer = styled.div`
     box-shadow: 0 2px 5px 0 rgb(96 96 96 / 16%),
       2px 10px 23px 0 rgb(96 96 96 / 13%);
     padding: 40px;
-    padding-bottom: 20px;
   }
 
   #map {
@@ -80,8 +82,9 @@ const StyledContainer = styled.div`
 
   .col25 {
     float: left;
-    width: 25%;
-    margin-top: 1px;
+    width: 20%;
+    padding-left: 40px;
+    text-align: left
   }
 
   .col75 {
@@ -157,9 +160,12 @@ const MissingWrite = ({
           },
         )
         .then((res) => {
-          onChangeField({ key: "location", value: res.data.documents[0].address.address_name, });
-          onChangeField({ key: "latitude", value: mouseEvent.latLng.La, })
-          onChangeField({key: "longitude", value: mouseEvent.latLng.Ma,})
+          onChangeField({
+            key: "location",
+            value: res.data.documents[0].address.address_name,
+          });
+          onChangeField({ key: "latitude", value: mouseEvent.latLng.La });
+          onChangeField({ key: "longitude", value: mouseEvent.latLng.Ma });
         });
     });
   };
@@ -177,7 +183,7 @@ const MissingWrite = ({
     var map = new kakao.maps.Map(container, options);
 
     displayMarker(map);
-  }
+  };
 
   useEffect(() => {
     mapScript();
@@ -210,138 +216,127 @@ const MissingWrite = ({
 
   return (
     <StyledContainer>
-      <div className="registerTitle">
-        <h1>반려동물 정보를 입력해주세요.</h1>
-      </div>
-      <div clssName="wrapper">
-        <div className="petRegister">
-          <div className="row">
-            <div className="col25">
-              <label for="title">제목</label>
-            </div>
-            <div className="col75">
-              <input
-                type="text"
-                value={title}
-                className="inputTitle"
-                placeholder="제목을 입력해주세요"
-                onChange={onChangeTitle}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="title">이름</label>
-            </div>
-            <div className="col75">
-              <input
-                type="text"
-                value={name}
-                className="inputName"
-                placeholder="이름을 입력해주세요"
-                onChange={onChangeName}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="species">품종</label>
-            </div>
-            <div className="col75">
-              <input
-                type="text"
-                value={type}
-                className="inputSpecies"
-                placeholder="반려동물 품종을 입력해주세요"
-                onChange={onChangeType}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="sex">성별</label>
-            </div>
-            <div className="col75">
-              <select
-                name="select"
-                value={sex}
-                className="inputSex"
-                onChange={onChangeSex}
-              >
-                <option value="">선택</option>
-                <option value="암컷">암컷</option>
-                <option value="수컷">수컷</option>
-              </select>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="">실종 장소</label>
-            </div>
-            <div className="col75">
-              <input
-                type="text"
-                value={location}
-                className="inputArea"
-                placeholder="지도에 마커를 남겨주세요"
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="title">실종 날짜</label>
-            </div>
-            <div className="col75">
-              <input
-                type="date"
-                value={missing_date}
-                className="inputDate"
-                onChange={onChangeDate}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="born">출생 년도</label>
-            </div>
-            <div className="col75">
-              <input
-                type="text"
-                value={born_year}
-                className="inputBorn"
-                placeholder="출생년도를 입력하세요"
-                onChange={onChangeBorn}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="images">사진</label>
-            </div>
-            <div className="col75">
-              <input
-                type="file"
-                className="inputFile"
-                onChange={onChangeImage}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col25">
-              <label for="decription">내용</label>
-            </div>
-            <div className="col75">
-              <textarea
-                value={contents}
-                className="inputDescription"
-                placeholder="내용을 입력하세요"
-                onChange={onChangeContents}
-              />
-            </div>
-          </div>
+        <div className="registerTitle">
+          반려동물 정보를 입력해주세요.
         </div>
-        <div id="map"></div>
-      </div>
+        <div clssName="wrapper">
+          <div className="petRegister">
+            <div className="row">
+
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="title">이름</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="text"
+                  value={name}
+                  className="inputName"
+                  placeholder="반려동물 이름을 입력해주세요"
+                  onChange={onChangeName}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="species">품종</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="text"
+                  value={type}
+                  className="inputSpecies"
+                  placeholder="반려동물 품종을 입력해주세요"
+                  onChange={onChangeType}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="sex">성별</label>
+              </div>
+              <div className="col75">
+                <select
+                  name="select"
+                  value={sex}
+                  className="inputSex"
+                  onChange={onChangeSex}
+                >
+                  <option value="">선택</option>
+                  <option value="암컷">암컷</option>
+                  <option value="수컷">수컷</option>
+                </select>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="">실종 장소</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="text"
+                  value={location}
+                  className="inputArea"
+                  placeholder="지도에 마커를 남겨주세요"
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="title">실종 날짜</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="date"
+                  value={missing_date}
+                  className="inputDate"
+                  onChange={onChangeDate}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="born">출생 년도</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="text"
+                  value={born_year}
+                  className="inputBorn"
+                  placeholder="출생년도를 입력하세요"
+                  onChange={onChangeBorn}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="images">사진</label>
+              </div>
+              <div className="col75">
+                <input
+                  type="file"
+                  className="inputFile"
+                  onChange={onChangeImage}
+                />
+              </div>
+            </div>
+            <div className="row">
+              <div className="col25">
+                <label for="decription">내용</label>
+              </div>
+              <div className="col75">
+                <textarea
+                  value={contents}
+                  className="inputDescription"
+                  placeholder="내용을 입력하세요"
+                  onChange={onChangeContents}
+                />
+              </div>
+            </div>
+          </div>
+          <div id="map"></div>
+        </div>
     </StyledContainer>
   );
 };

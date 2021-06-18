@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import NavigationBar from "../../parts/components/Navbar";
+import Navbar from "../../parts/components/Navbar";
 
 export default function Mypage() {
   return (
@@ -8,7 +8,7 @@ export default function Mypage() {
       <Head>
         <title>펫구루 | 마이페이지</title>
       </Head>
-      <NavigationBar>
+      <Navbar />
         <h1>로그인된 유저에게만 네비게이션바에서 보여지도록 구현해야합니다.</h1>
         <div
           className="container"
@@ -91,7 +91,6 @@ export default function Mypage() {
             <h1>메뉴 선택에 따른 데이터 변경</h1>
           </div>
         </div>
-      </NavigationBar>
     </>
   );
 }

@@ -144,20 +144,19 @@ export default function Login() {
                 {/* <button type="button" className="btn-login">
                 Google 계정으로 로그인
               </button> */}
-              </form>
-              <StyledGoogleLogin
+              <button type="button" className="btn-login"
                   clientId="990746219787-o0d3tjjbq8m6df4d8gugbgos0fbj91eh.apps.googleusercontent.com"
                   buttonText="Login with Google"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   cookiePolicy={'single_host_origin'}
-                />
+                >Google 로그인</button>
               <button type="button" className="btn-login">
               <Link href="/home">
                 Guest 로그인
               </Link>
               </button>
-
+              </form>
             </div>
             <div className="find-info">
               <Link href="/register">

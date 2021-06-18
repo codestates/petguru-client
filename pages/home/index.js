@@ -129,6 +129,7 @@ const Home = ({ children, props }) => {
               </div>
             </section>
           </section>
+
           <section class="third">
             <h3 class="title">Find My Pet</h3>
             <div class="missingPet">
@@ -142,13 +143,8 @@ const Home = ({ children, props }) => {
             </div>
             <div class="missingPet">
               <div class="missingPetImg"></div>
-            </div>
-
-            
+            </div>            
           </section>
-
-
-
         </MainPage>
       </body>
       {children}

@@ -147,12 +147,12 @@ const Register = () => {
                 <button type="submit" className="btn-login">
                   회원가입
                 </button>
-              </form>
               <Link href="/login">
-                <h3 style={{marginTop:"10px", cursor:"pointer", textAlign:"center"}}>
-                로그인하러 가기
-                </h3>
+                <button type="button" className="btn-login">
+                  로그인하러 가기
+                </button>
               </Link>
+              </form>
             </div>
           </div>
         </div>
