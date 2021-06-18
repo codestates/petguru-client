@@ -95,7 +95,7 @@ div {
   align-items: stretch;
   justify-content: center;
   height: 180px;
-  width: 85%;
+  width: 70%;
   background-color: grey;
   color: white;
   margin: 15px;

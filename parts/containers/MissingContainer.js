@@ -7,48 +7,83 @@ import { listPosts } from '../../redux/modules/missing_posts';
 const missingList = [
   {
     id: 1,
-    username: "손영산",
-    url: "/images/dog.jpeg",
-    title: "사월이를 찾아주세요",
-    content: "원흥역 3번 출구에서 시바견 사월이가 실종됐습니다.ㅠㅠ도와주세요.",
-    createDate: "2021-06-03",
-    readCount: 99
+    url: "/images/mockDogImg/mal.jpeg",
+    name: "쫑이",
+    type: "말티즈",
+    sex: "수컷",
+    location: "대구시 북구 칠성동 2가",
+    missing_date: "2021-06-03",
+    born_year: "2007년"
   },
   {
     id: 2,
-    username: "손영산",
-    url: "/images/dog.jpeg",
-    title: "깨비를 찾아주세요",
-    content: "삼송공원에서 실버푸들 깨비가 실종됐습니다.ㅠㅠ도와주세요.",
-    createDate: "2021-06-05",
-    readCount: 50
+    url: "/images/mockDogImg/pome.jpeg",
+    name: "축복이",
+    type: "포메라니안",
+    sex: "수컷",
+    location: "서울시 송파구 가락동 913",
+    missing_date: "2021-05-31",
+    born_year: "2012년"
   },
   {
     id: 3,
-    username: "만두맨",
-    url: "/images/dog.jpeg",
-    title: "만두를 찾아주세요",
-    content: "신원동 터널에서 차우차우 만두가 실종됐습니다.ㅠㅠ도와주세요.",
-    createDate: "2021-05-31",
-    readCount: 25
+    url: "/images/mockDogImg/samo.png",
+    name: "복실이",
+    type: "사모예드",
+    sex: "암컷",
+    location: "경기 이천시 진리동 394-1",
+    missing_date: "2021-06-18",
+    born_year: "2019년"
   },
   {
     id: 4,
-    username: "찐빵맨",
-    url: "/images/dog.jpeg",
-    title: "찐빵을 찾아주세요",
-    content: "신원동 터널에서 스핑크스 고양이 찐빵이 실종됐습니다.ㅠㅠ도와주세요.",
-    createDate: "2021-05-30",
-    readCount: 35
+    url: "/images/mockDogImg/siba.jpeg",
+    name: "사월이",
+    type: "시바견",
+    sex: "암컷",
+    location: "서울 도봉구 쌍문동 659-1",
+    missing_date: "2021-06-03",
+    born_year: "2009년"
   },
   {
     id: 5,
-    username: "쿠팡맨",
-    url: "/images/dog.jpeg",
-    title: "쿠팡이를 찾아주세요",
-    content: "신원동 터널에서 길냥이 쿠팡이가 실종됐습니다.ㅠㅠ도와주세요.",
-    createDate: "2021-06-01",
-    readCount: 65
+    url: "/images/mockDogImg/spitz.jpeg",
+    name: "피치",
+    type: "스피츠",
+    sex: "암컷",
+    location: "경기 성남시 분당구 야탑동 334",
+    missing_date: "2021-05-25",
+    born_year: "2005년"
+  },
+  {
+    id: 6,
+    url: "/images/mockDogImg/siba.jpeg",
+    name: "사월이",
+    type: "시바견",
+    sex: "암컷",
+    location: "서울 도봉구 쌍문동 659-1",
+    missing_date: "2021-06-03",
+    born_year: "2009년"
+  },
+  {
+    id: 7,
+    url: "/images/mockDogImg/samo.png",
+    name: "복실이",
+    type: "사모예드",
+    sex: "암컷",
+    location: "경기 이천시 진리동 394-1",
+    missing_date: "2021-06-18",
+    born_year: "2019년"
+  },
+  {
+    id: 8,
+    url: "/images/mockDogImg/mal.jpeg",
+    name: "쫑이",
+    type: "말티즈",
+    sex: "수컷",
+    location: "대구시 북구 칠성동 2가",
+    missing_date: "2021-06-03",
+    born_year: "2007년"
   },
 ]
 

@@ -11,24 +11,24 @@ const CardContainer = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 12px;
   cursor: pointer;
 `;
 
 
 const PostList = ({ missingList, error, loading, posts }) => {
   // 에러 발생 시
+  /*
   if (error) {
     return <PostListBlock>에러가 발생했습니다</PostListBlock>
-  }
+  } */
   
   return (
     <CardContainer>
-      {/* {missingList.map(data => {
-        return <CardItem id={data.id} username={data.username} url={data.url} title={data.title} />
+      {missingList.map(data => {
+        return <CardItem id={data.id} url={data.url} name={data.name} type={data.type} sex={data.sex} location={data.location} missing_date={data.missing_date} born_year={data.born_year}   />
         })
-      } */}
-      {
+      }
+      {/*
         !loading && posts && (
           <div>
             {posts.map(post => (
@@ -36,7 +36,7 @@ const PostList = ({ missingList, error, loading, posts }) => {
             ))}
           </div>
         )
-      }
+            */}
     </CardContainer>
   );
 }
