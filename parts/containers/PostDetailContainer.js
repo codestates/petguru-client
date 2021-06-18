@@ -11,11 +11,11 @@ const PostDetailContainer = ({postId}) => {
   const dispatch = useDispatch();
 
   // 첫 마운트 시에 포스트 읽기 API 요청
-  const { post, error, loading } = useSelector(({ post, loading }) => ({
+  const { post, error, loading, user } = useSelector(({ post, loading, user }) => ({
     post: post.post,
     error: post.error,
     loading: loading,
-    // user: user.user,
+    user: user.user,
   }));
 
   useEffect(() => {
@@ -46,6 +46,7 @@ const PostDetailContainer = ({postId}) => {
     <>
       <PostDetail
         post={post}
+        user={user}
         loading={loading}
         error={error}
         actionButtons={<PostActionButtons onEdit={onEdit} onRemove={onRemove} />}

@@ -43,6 +43,7 @@ const ContentsCard = styled.div`
 const CardItem = ({ id, username, url, title }) => {
   const router = useRouter();
 
+  // API 호출 POSTDETAIL
   const onClick = () => {
     router.push(`/missing/${id}`);
   }

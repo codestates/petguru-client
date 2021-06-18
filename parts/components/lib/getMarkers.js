@@ -1,6 +1,6 @@
 /*global kakao*/
 
-const submitMarkers = () => {
+const getMarkers = (posts) => {
   var mapContainer = document.getElementById("map"), // 지도를 표시할 div
     mapOption = {
       center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
@@ -10,24 +10,60 @@ const submitMarkers = () => {
   var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
   // 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다
+  var content = `
+    <div style="padding: 16px; display:flex; flex-direction:column; justify-content:center;">
+      <div>제목</div>
+      <div>내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용</div>
+      <div>이미지</div>
+      <a href="missing/1">링크</a>
+    </div>
+  `;
   var positions = [
     {
-      content: "<div>카카오</div>",
+      content: content,
       latlng: new kakao.maps.LatLng(33.450705, 126.570677),
     },
     {
-      content: "<div>생태연못</div>",
+      content: content,
       latlng: new kakao.maps.LatLng(33.450936, 126.569477),
     },
     {
-      content: "<div>텃밭</div>",
+      content: content,
       latlng: new kakao.maps.LatLng(33.450879, 126.56994),
     },
     {
-      content: "<div>근린공원</div>",
+      content: content,
       latlng: new kakao.maps.LatLng(33.451393, 126.570738),
     },
   ];
+
+  // posts.forEach(post => {
+  //   var marker = new kakao.maps.Marker({
+  //     map: map,
+  //     position: {
+  //       latitude: post.latitude,
+  //       longitude: post.longitude,
+  //     }
+  //   })
+
+  //   const content = `
+  //     <div style="padding: 16px;">
+  //       <div>제목:${post.title}</div>
+  //       <div>이미지<img src="${post.images}" /></div>
+  //       <div>이름:${post.name}</div>
+  //       <div>품종:${post.type}</div>
+  //       <div>성별:${post.sex}</div>
+  //       <div>상세설명:${post.contents}</div>
+  //       <div>실종지역:${location}</div>
+  //       <a href="missing/${post.id}">자세히보기</a>
+  //     </div>
+  //   `;
+
+  //   var infowindow = new kakao.maps.InfoWindow({
+  //     content: content,
+  //     removable: true,
+  //   })
+  // })
 
   for (var i = 0; i < positions.length; i++) {
     // 마커를 생성합니다
@@ -68,4 +104,4 @@ const submitMarkers = () => {
   }
 };
 
-export default submitMarkers;
+export default getMarkers;
