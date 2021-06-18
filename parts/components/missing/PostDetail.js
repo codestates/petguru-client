@@ -32,7 +32,7 @@ const PostContent = styled.div`
   margin-bottom: 3rem;
 `;
 
-const PostDetail = ({ post, error, loading, actionButtons }) => {
+const PostDetail = ({ post, error, loading, user, actionButtons }) => {
   // 에러 발생 시
   // if (error) {
   //   if (error.response && error.response.status === 404) {
