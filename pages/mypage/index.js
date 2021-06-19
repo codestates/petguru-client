@@ -1,6 +1,7 @@
-import Head from 'next/head';
-import Link from 'next/link';
+import Head from "next/head";
+import Link from "next/link";
 import Navbar from "../../parts/components/Navbar";
+import MyPage from "../../styles/MyPage";
 
 export default function Mypage() {
   return (
@@ -9,8 +10,24 @@ export default function Mypage() {
         <title>펫구루 | 마이페이지</title>
       </Head>
       <Navbar />
-        <h1>로그인된 유저에게만 네비게이션바에서 보여지도록 구현해야합니다.</h1>
-        <div
+      <MyPage>
+        <section class="search">
+          <div class="backgroundImage" />
+          <div class="sidenav">
+            <a href="#">Profile</a>
+            <a href="#">Pet</a>
+            <a href="#">Q&A</a>
+            <a href="#">For Mentor</a>
+          </div>
+
+          <div class="content">
+            <h2>My Page</h2>
+            <p>Work In Progress</p>
+          </div>
+        </section>
+      </MyPage>
+
+      {/* <div
           className="container"
           style={{
             display: "flex",
@@ -90,7 +107,7 @@ export default function Mypage() {
           >
             <h1>메뉴 선택에 따른 데이터 변경</h1>
           </div>
-        </div>
+        </div> */}
     </>
   );
 }
