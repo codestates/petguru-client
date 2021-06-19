@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const client = axios.create();
+const client = axios.create({
+  baseURL: 'http://localhost:5000'
+});
 
 /*
   글로벌 설정 예시:

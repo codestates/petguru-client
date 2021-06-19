@@ -62,9 +62,7 @@ export default function Login() {
   // 컴포넌트 첫 렌더링 => 폼 초기화
   useEffect(() => {
     dispatch(initializeForm('login'));
-  }, [dispatch]);
 
-  useEffect(() => {
     if (authError) {
       console.log('오류 발생');
       console.log(authError);
@@ -74,20 +72,21 @@ export default function Login() {
     }
     if (auth) {
       alert('로그인 성공');
-      dispatch(check());
+      // dispatch(check());
     }
   }, [auth, authError, dispatch]);
 
-  // useEffect(() => {
-  //   if (user) {
-  //     router.push('/home');
-  //     try {
-  //       localStorage.setItem('user', JSON.stringify(user));
-  //     } catch (e) {
-  //       console.log(e);
-  //     }
-  //   }
-  // }, [router, user]);
+
+  useEffect(() => {
+    if (user) {
+      router.push('/home');
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [router, user]);
 
   return (
     <>

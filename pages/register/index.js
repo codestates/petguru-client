@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeField, initializeForm, register } from "../../redux/modules/auth";
 import { useRouter } from "next/router";
 import styled from 'styled-components';
+import { initialize } from '../../redux/modules/missing_write';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -18,17 +19,40 @@ const Register = () => {
   const [error, setError] = useState(null);
   const dispatch = useDispatch();
   const router = useRouter();
-  const { form, auth, authError } = useSelector(({ auth }) => ({
+  const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
     form: auth.register,
     auth: auth.auth,
-    authError: auth.authError
+    authError: auth.authError,
+    user: user.user
   }));
+
+  useEffect(() => {
+    dispatch(initializeForm('register'));
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (auth) {
+      alert('회원가입 완료');
+      // 로그인 페이지 이동 전에 state 초기화
+      router.push('/login');
+    }
+  }, [auth])
+
+  useEffect(() => {
+    if (authError) {
+      console.log(authError)
+      if (authError.response.status === 409) {
+        setError('이미 존재하는 이메일입니다.');
+        return;
+      }
+      setError('회원가입 실패');
+      return;
+    }
+  }, [authError]);
 
   const onChange = e => {
     const { value, name } = e.target;
-    console.log('onChange이벤트');
-    console.log(value);
-    console.log(name);
+
     dispatch(changeField({
         form: 'register',
         key: name,
@@ -52,26 +76,6 @@ const Register = () => {
     }
     dispatch(register({ username, email, password }));
   };
-  
-  useEffect(() => {
-    dispatch(initializeForm('register'));
-  }, [dispatch]);
-
-  useEffect(() => {
-    if (authError) {
-      if (authError.response.status === 409) {
-        setError('이미 존재하는 이메일입니다.');
-        return;
-      }
-      setError('회원가입 실패');
-      return;
-    }
-    if (auth) {
-      alert('회원가입 완료');
-      console.log(auth);
-      router.push('/login');
-    }
-  }, [auth, authError]);
 
   return (
     <>
