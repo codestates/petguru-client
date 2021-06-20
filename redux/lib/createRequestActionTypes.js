@@ -10,14 +10,14 @@ export const createRequestActionTypes = type => {
 export default function createRequestSaga(type, request) {
   const SUCCESS = `${type}_SUCCESS`;
   const ERROR = `${type}_ERROR`;
+  console.log('request가 도대체 뭔데', request);
 
   return function*(action) {
     yield put(startLoading(type)); // 로딩 시작
     console.log('로딩이 시작됩니다.')
-    console.log(action)
     try {
       console.log('action은', action);
-      console.log(request);
+      console.log('Request 요청 후에 사가함수가 실행됩니다. request : ', request);
       console.log('try문이 시작됩니다.')
       const response = yield call(request, action.payload);
       console.log('response', response);

@@ -77,7 +77,7 @@ const WriteActionButtonsContainer = () => {
       console.log(contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date)
       dispatch(
         // writePost(formData)
-        writePost(contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date /*image_url*/)
+        writePost({ contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date /*image_url*/ })
       );
       alert('게시물이 등륵되었습니다.')
       // router.push('/missing');
