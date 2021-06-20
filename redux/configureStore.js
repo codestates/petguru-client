@@ -21,18 +21,18 @@ const configureStore = (initialState, options) => {
     enhancer,
   );
 
-  // function loadUser() {
-  //   try {
-  //     const user = localStorage.getItem('user');
-  //     if (!user) return;
-  //     store.dispatch(tempSetUser(user));
-  //     store.dispatch(check());
-  //   } catch (e) {
-  //     console.log(e);
-  //   }
-  // }
+  function loadUser() {
+    try {
+      const user = localStorage.getItem('user');
+      if (!user) return;
+      store.dispatch(tempSetUser(user));
+      store.dispatch(check());
+    } catch (e) {
+      console.log(e);
+    }
+  }
   store.sagaTask = sagaMiddleware.run(rootSaga);
-  // loadUser();
+  loadUser();
   
   return store;
 }

@@ -122,14 +122,13 @@ const StyledContainer = styled.div`
 `;
 
 const MissingWrite = ({
-  name,
-  title,
+  pet_name,
   contents,
   type,
   sex,
   location,
   missing_date,
-  images,
+  image_url,
   born_year,
   longitude,
   latitude,
@@ -189,11 +188,8 @@ const MissingWrite = ({
     mapScript();
   }, []);
 
-  const onChangeTitle = useCallback((e) => {
-    onChangeField({ key: "title", value: e.target.value });
-  }, []);
   const onChangeName = (e) => {
-    onChangeField({ key: "name", value: e.target.value });
+    onChangeField({ key: "pet_name", value: e.target.value });
   };
   const onChangeType = (e) => {
     onChangeField({ key: "type", value: e.target.value });
@@ -211,7 +207,7 @@ const MissingWrite = ({
     onChangeField({ key: "contents", value: e.target.value });
   };
   const onChangeImage = (e) => {
-    onChangeField({ key: "images", value: e.target.value });
+    onChangeField({ key: "image_url", value: e.target.value });
   };
 
   return (
@@ -231,7 +227,7 @@ const MissingWrite = ({
               <div className="col75">
                 <input
                   type="text"
-                  value={name}
+                  value={pet_name}
                   className="inputName"
                   placeholder="반려동물 이름을 입력해주세요"
                   onChange={onChangeName}

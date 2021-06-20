@@ -8,15 +8,14 @@ import WriteActionButtons from '../components/missing/write/WriteActionButtons';
 const WriteActionButtonsContainer = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { name, title, contents, type, sex, location, missing_date, images, born_year, latitude, longitude, post, postError, originalPostId } = useSelector(({ write }) => ({
-    name: write.name,
-    title: write.title,
+  const { pet_name, contents, type, sex, location, missing_date, /*image_url*/ born_year, latitude, longitude, post, postError, originalPostId } = useSelector(({ write }) => ({
+    pet_name: write.pet_name,
     contents: write.contents,
     type: write.type,
     sex: write.sex,
     location: write.location,
     missing_date: write.missing_date,
-    images: write.images,
+    // image_url: write.image_url,
     born_year: write.born_year,
     latitude: write.latitude,
     longitude: write.longitude,
@@ -30,14 +29,13 @@ const WriteActionButtonsContainer = () => {
     if (originalPostId) {
       dispatch(updatePost
         ({
-          name,
-          title,
+          pet_name,
           contents,
           type,
           sex,
           location,
           missing_date,
-          images,
+          // image_url,
           born_year,
           id: originalPostId
         })
@@ -45,40 +43,44 @@ const WriteActionButtonsContainer = () => {
       return;
     }
 
-    const formData = new FormData();
-
-    formData.append("title", title);
-    formData.append("contents", contents);
-    formData.append("name", name);
-    formData.append("type", type);
-    formData.append("sex", sex);
-    formData.append("born_year", born_year);
-    formData.append("location", location);
-    formData.append("latitude", latitude);
-    formData.append("longitude", longitude);
-    formData.append("missing_date", missing_date);
-    formData.append("images", images);
+    // const formData = new FormData();
+    // console.log(contents, name, type, sex, born_year, location, latitude, longitude, missing_date, images);
+    // formData.append('contents', contents);
+    // formData.append("name", name);
+    // formData.append("type", type);
+    // formData.append("sex", sex);
+    // formData.append("born_year", born_year);
+    // formData.append("location", location);
+    // formData.append("latitude", latitude);
+    // formData.append("longitude", longitude);
+    // formData.append("missing_date", missing_date);
+    // formData.append("images", images);
+    // for (let value of formData.values()) {
+    //   console.log(value);
+    // }
 
     if (
-      !title ||
       !contents ||
-      !name ||
+      !pet_name ||
       !type ||
       !sex ||
       !born_year ||
       !location ||
       !latitude ||
       !longitude ||
-      !missing_date ||
-      !images
+      !missing_date
+      // !image_url
     ) {
       alert('모든 정보를 입력해주세요.');
       return;
     } else {
+      console.log(contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date)
       dispatch(
-        writePost({formData})
+        // writePost(formData)
+        writePost(contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date /*image_url*/)
       );
-      router.push('/missing');
+      alert('게시물이 등륵되었습니다.')
+      // router.push('/missing');
     }
   };
 
