@@ -93,13 +93,15 @@ const MissingContainer = () => {
     ({ posts, loading, user }) => ({
       posts: posts.posts,
       error: posts.error,
-      loading: loading,
+      loading: loading['posts/LIST_POSTS'],
       user: user.user,
     }),
   );
 
   useEffect(() => {
-    dispatch(listPosts());
+    const lastId = posts[posts.length - 1]?.id;
+    console.log('lastId : ', lastId)
+    dispatch(listPosts(lastId));
   }, [dispatch]);
   return (
     <PostList missingList={missingList} loading={loading} posts={posts} error={error} />
