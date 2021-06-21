@@ -43,6 +43,17 @@ const Register = () => {
   }, [auth]);
 
   useEffect(() => {
+    if (user) {
+      router.push('/login');
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        console.log('localStorage is not working');
+      }
+    }
+  })  
+
+  useEffect(() => {
     if (authError) {
       console.log(authError);
       if (authError.response.status === 409) {

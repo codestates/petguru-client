@@ -53,6 +53,8 @@ export default function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
     const { email, password } = form;
+
+    console.log('email: ', email);
     dispatch(login({ email, password }));
   };
 
@@ -77,9 +79,11 @@ export default function Login() {
     }
     if (auth) {
       alert("로그인 성공");
+      router.push("/home");
       // dispatch(check());
     }
   }, [auth, authError, dispatch]);
+
 
   useEffect(() => {
     if (user) {
@@ -92,6 +96,18 @@ export default function Login() {
     }
   }, [router, user]);
 
+  // useEffect(() => {
+  //   if (user) {
+  //     router.push("/home");
+  //     try {
+  //       localStorage.setItem("user", JSON.stringify(user));
+  //     } catch (e) {
+  //       console.log(e);
+  //     }
+  //   }
+  // }, [router, user]);
+
+
   return (
     <>
       <Head>
@@ -101,6 +117,7 @@ export default function Login() {
         <header>
           <h2>
             <a>
+
               <Link href="/">
                 <img src="img/logo.png" class="logo" />
               </Link>
@@ -148,20 +165,19 @@ export default function Login() {
                 <button type="submit" className="btn-login">
                   로그인
                 </button>
-                {/* <button type="button" className="btn-login">
-                Google 계정으로 로그인
-              </button> */}
-                <button
-                  type="button"
-                  className="btn-login"
+
+                <GoogleLogin
                   clientId="990746219787-o0d3tjjbq8m6df4d8gugbgos0fbj91eh.apps.googleusercontent.com"
-                  buttonText="Login with Google"
+                  render={(renderProps) => (
+                    <button onClick={renderProps.onClick} className="btn-login">
+                      Google 로그인
+                    </button>
+                  )}
+                  buttonText="Login"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
                   cookiePolicy={"single_host_origin"}
-                >
-                  Google 로그인
-                </button>
+                />
                 <button type="button" className="btn-login">
                   <Link href="/home">Guest 로그인</Link>
                 </button>

@@ -42,7 +42,8 @@ const ContentsCard = styled.div`
   }
 `;
 
-const CardItem = ({ id, url, name, type, sex, location, missing_date, born_year }) => {
+const CardItem = ({ post }) => {
+  const { id, pet_name, type, sex, location, missing_date, born_year, image_url } = post;
   const router = useRouter();
 
   // API 호출 POSTDETAIL
@@ -52,10 +53,10 @@ const CardItem = ({ id, url, name, type, sex, location, missing_date, born_year 
   return (
     <ContentsCard onClick={onClick}>
       <div>
-        <img src={url} />
+        <img src={image_url} />
       </div>
       <div className="contents">
-        <div className="contents-title">이름 : { name }</div>
+        <div className="contents-title">이름 : { pet_name }</div>
         <div className="contents-title">품종 : { type }</div>
         <div className="contents-title">성별 : { sex }</div>
         <div className="contents-title">실종장소 : { location }</div>

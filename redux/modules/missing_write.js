@@ -23,27 +23,27 @@ const [
 ] = createRequestActionTypes('write/UPDATE_POST'); // 게시물 수정
 
 export const writePost = createAction(WRITE_POST, ({
-  title,
+  // formData
   contents,
   latitude,
   longitude,
   location,
-  images,
+  image_url,
   missing_date,
   born_year,
-  name,
+  pet_name,
   type,
   sex
 }) => ({
-  title,
+  // formData
   contents,
   latitude,
   longitude,
   location,
-  images,
+  image_url,
   missing_date,
   born_year,
-  name,
+  pet_name,
   type,
   sex,
 }));
@@ -56,10 +56,10 @@ export const updatePost = createAction(
     latitude,
     logitude,
     location,
-    images,
+    image_url,
     missing_date,
     born_year,
-    name,
+    pet_name,
     type,
     sex,
   }) => ({
@@ -69,10 +69,10 @@ export const updatePost = createAction(
     latitude,
     logitude,
     location,
-    images,
+    image_url,
     missing_date,
     born_year,
-    name,
+    pet_name,
     type,
     sex,
   })
@@ -89,15 +89,14 @@ export function* writeSaga() {
 
 
 const initialState = {
-  title: '',
   contents: '',
   latitude: '',
   longitude: '',
   location: '',
-  images: '',
+  image_url: '',
   missing_date: '',
-  born_year: null,
-  name: '',
+  born_year: '',
+  pet_name: '',
   type: '',
   sex: '',
   post: null,
