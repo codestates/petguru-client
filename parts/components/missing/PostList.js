@@ -7,7 +7,7 @@ const PostListBlock = styled(Responsive)`
 `;
 
 const CardContainer = styled.div`
-  width: 100%;
+  width: fit-content;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;

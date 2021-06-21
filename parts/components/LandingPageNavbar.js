@@ -4,23 +4,34 @@ import Link from "next/link";
 const LandingPageNavBar = ({ children, props }) => {
   return (
     <>
-        <header>
-          <h2>
-            <a><Link href="/">Petguru</Link></a>
-          </h2>
-          <nav>
-            <li>
-              <a><Link href="/login">Login</Link></a>
-            </li>
-            <li>
-              <a><Link href="">Ko/En</Link></a>
-            </li>
-          </nav>
-        </header>
+      <header>
+        <h2>
+          <a>
+            <Link href="/">
+              <img src="img/logo.png" class="logo" />
+              {/* <div class="logo-box">
+                <img src="img/logo.png" class="logo" />
+              </div> */}
+            </Link>
+          </a>
+        </h2>
+        <nav>
+          <li>
+            <a>
+              <Link href="/login">Login</Link>
+            </a>
+          </li>
+          <li>
+            <a>
+              <Link href="">Ko/En</Link>
+            </a>
+          </li>
+        </nav>
+      </header>
       {children}
     </>
 
-/*
+    /*
     <>   
         <div className="nav" style={{ marginTop: "30px", display: "flex" }}>
           <div style={{ backgroundColor: "red", marginLeft: "3%" }}>

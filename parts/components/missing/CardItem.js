@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useRouter } from 'next/router';
 
 const ContentsCard = styled.div`
-  width: 300px;
+  width: 280px;
   height: 400px;
   color: white;
   background: grey;

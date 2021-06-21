@@ -17,6 +17,13 @@ ul, nav{
 	list-style: none;
 }
 
+.logo {
+	padding-bottom: 20px;
+    width: 95px;
+    height: 125px;
+}
+ 
+
 a{
 	text-decoration: none;
 	color: inherit;
@@ -53,7 +60,7 @@ section{
 	flex-direction: column;
 	align-items: center;
 
-	padding: 125px 100px;
+	padding: 125px 0px;
 	
 }
 
@@ -114,7 +121,7 @@ header{
 	justify-content: space-between;
 	align-items: center;
 	color: #96a594;
-	padding: 35px 100px 0;
+	padding: 20px 100px;
 }
 
 header h2{
@@ -140,7 +147,7 @@ header nav li:last-child{
 
 @media (max-width: 1000px){
 	header{
-		padding: 20px 50px;
+		padding: 20px 100px;
 	}
 }
 
@@ -173,7 +180,7 @@ header nav li:last-child{
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background-size: contain;
+	background-size: cover;
 	background-color: #f8ede3;
 	opacity: 0.5;
 	z-index: -1;
@@ -260,7 +267,7 @@ header nav li:last-child{
 
 .third .grid li i{
     font-size: 50px;
-    color: #5eaaa8;
+    color: #798777;
     margin-bottom: 25px;
 }
 
