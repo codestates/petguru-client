@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import PostDetail from './PostDetail';
 
 const ContentsCard = styled.div`
-  width: 300px;
+  width: 280px;
   height: 400px;
   color: white;
   background: grey;

@@ -53,6 +53,7 @@ export default function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
     const { email, password } = form;
+
     console.log('email: ', email);
     dispatch(login({ email, password }));
   };
@@ -83,6 +84,18 @@ export default function Login() {
     }
   }, [auth, authError, dispatch]);
 
+
+  useEffect(() => {
+    if (user) {
+      router.push("/home");
+      try {
+        localStorage.setItem("user", JSON.stringify(user));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [router, user]);
+
   // useEffect(() => {
   //   if (user) {
   //     router.push("/home");
@@ -94,6 +107,7 @@ export default function Login() {
   //   }
   // }, [router, user]);
 
+
   return (
     <>
       <Head>
@@ -103,7 +117,10 @@ export default function Login() {
         <header>
           <h2>
             <a>
-              <Link href="/">Petguru</Link>
+
+              <Link href="/">
+                <img src="img/logo.png" class="logo" />
+              </Link>
             </a>
           </h2>
         </header>
@@ -159,6 +176,7 @@ export default function Login() {
                   buttonText="Login"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
+                  cookiePolicy={"single_host_origin"}
                 />
                 <button type="button" className="btn-login">
                   <Link href="/home">Guest 로그인</Link>

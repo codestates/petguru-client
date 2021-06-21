@@ -38,13 +38,18 @@ const MainPage = styled.div
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 400px;
+  height: 60vh;
   width: 100%;
   background-color: white;
   color: black;
   margin: 15px;
   font-size: 4em;
+
+  background-clip: content-box;
+	background-size: cover;
+	background-position: center;
 }
+
 
 button {
   background-color: #798777;
