@@ -18,10 +18,10 @@ const Home = ({ children, props }) => {
           <section class="banner">
             <div class="backgroundImage" />
             <Carousel itemsToShow={1}>
-              <div class="bannerImage" style={{backgroundImage: "url(img/1.jpeg)"}}></div>
-              <div class="bannerImage" style={{backgroundImage: "url(img/2.jpeg)"}}></div>
-              <div class="bannerImage" style={{backgroundImage: "url(img/3.jpeg)"}}></div>
-              <div class="bannerImage" style={{backgroundImage: "url(img/4.jpeg)"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/1.jpeg)", backgroundSize: "contain"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/2.jpeg)", backgroundSize: "contain"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/3.jpeg)", backgroundSize: "contain"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/4.jpeg)", backgroundSize: "contain"}}></div>
             </Carousel>
           </section>
 

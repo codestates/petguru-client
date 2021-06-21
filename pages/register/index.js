@@ -1,12 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import SignUpSignIn from "../../styles/SignUpSignIn";
 import { useDispatch, useSelector } from "react-redux";
-import { changeField, initializeForm, register } from "../../redux/modules/auth";
+import {
+  changeField,
+  initializeForm,
+  register,
+} from "../../redux/modules/auth";
 import { useRouter } from "next/router";
-import styled from 'styled-components';
-import { initialize } from '../../redux/modules/missing_write';
+import styled from "styled-components";
+import { initialize } from "../../redux/modules/missing_write";
 
 const ErrorMessage = styled.div`
   color: red;
@@ -23,17 +27,18 @@ const Register = () => {
     form: auth.register,
     auth: auth.auth,
     authError: auth.authError,
-    user: user.user
+    user: user.user,
   }));
 
   useEffect(() => {
-    dispatch(initializeForm('register'));
+    dispatch(initializeForm("register"));
   }, [dispatch]);
 
   useEffect(() => {
     if (auth) {
-      alert('회원가입 완료');
-      router.push('/login')
+      alert("회원가입 완료");
+      // 로그인 페이지 이동 전에 state 초기화
+      router.push("/login");
     }
   }, [auth]);
 
@@ -50,38 +55,41 @@ const Register = () => {
 
   useEffect(() => {
     if (authError) {
-      console.log(authError)
+      console.log(authError);
       if (authError.response.status === 409) {
-        setError('이미 존재하는 이메일입니다.');
+        setError("이미 존재하는 이메일입니다.");
         return;
       }
-      setError('회원가입 실패');
+      setError("회원가입 실패");
       return;
     }
   }, [authError]);
 
-  const onChange = e => {
+  const onChange = (e) => {
     const { value, name } = e.target;
 
-    dispatch(changeField({
-        form: 'register',
+    dispatch(
+      changeField({
+        form: "register",
         key: name,
-        value
-      })
-    )
-  }
+        value,
+      }),
+    );
+  };
 
-  const onSubmit = e => {
+  const onSubmit = (e) => {
     e.preventDefault();
     const { username, email, password, passwordConfirm } = form;
-    if ([username, email, password, passwordConfirm].includes('')) {
-      setError('빈 칸을 모두 입력하세요.');
+    if ([username, email, password, passwordConfirm].includes("")) {
+      setError("빈 칸을 모두 입력하세요.");
       return;
     }
     if (password !== passwordConfirm) {
-      setError('비밀번호가 일치하지 않습니다.');
-      dispatch(changeField({ form: 'register', key: 'password', value: '' }));
-      dispatch(changeField({ form: 'register', key: 'passwordConfirm', value: '' }));
+      setError("비밀번호가 일치하지 않습니다.");
+      dispatch(changeField({ form: "register", key: "password", value: "" }));
+      dispatch(
+        changeField({ form: "register", key: "passwordConfirm", value: "" }),
+      );
       return;
     }
     dispatch(register({ username, email, password }));
@@ -96,7 +104,9 @@ const Register = () => {
         <header>
           <h2>
             <a>
-              <Link href="/">Petguru</Link>
+              <Link href="/">
+                <img src="img/logo.png" class="logo" />
+              </Link>
             </a>
           </h2>
         </header>
@@ -161,11 +171,11 @@ const Register = () => {
                 <button type="submit" className="btn-login">
                   회원가입
                 </button>
-              <Link href="/login">
-                <button type="button" className="btn-login">
-                  로그인하러 가기
-                </button>
-              </Link>
+                <Link href="/login">
+                  <button type="button" className="btn-login">
+                    로그인하러 가기
+                  </button>
+                </Link>
               </form>
             </div>
           </div>
