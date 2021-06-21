@@ -9,7 +9,10 @@ const [
   LIST_POSTS_ERROR
 ] = createRequestActionTypes('posts/LIST_POSTS');
 
-export const listPosts = createAction(LIST_POSTS);
+export const listPosts = createAction(
+  LIST_POSTS,
+  (lastId) => (lastId)
+);
 
 const listPostsSaga = createRequestSaga(LIST_POSTS, postsAPI.listPosts);
 export function* postsSaga() {
@@ -17,7 +20,7 @@ export function* postsSaga() {
 }
 
 const initialState = {
-  posts: null,
+  posts: [],
   error: null,
 }
 

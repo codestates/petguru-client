@@ -14,7 +14,7 @@ export const writePost = ({contents, pet_name, type, sex, born_year, location, l
 
 export const readPost = id => client.get(`/missing/posts/${id}`);
 
-export const listPosts = () => client.get('/missing/posts');
+export const listPosts = (lastId) => client.get(`/missing/posts?${lastId || 0}`)
 
 export const updatePost = ({ id, title, contents, latitude, longitude, location, image_url, name, type, sex }) => client.put(`/posts/${id}`, { title, contents, latitude, longitude, location, image_url, name, type, sex });
 

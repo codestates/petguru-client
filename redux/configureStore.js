@@ -23,7 +23,7 @@ const configureStore = (initialState, options) => {
 
   function loadUser() {
     try {
-      const user = localStorage.getItem('user');
+      const user = window.localStorage.getItem('user');
       if (!user) return;
       store.dispatch(tempSetUser(user));
       store.dispatch(check());
