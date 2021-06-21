@@ -11,7 +11,6 @@ const StyledContainer = styled.div`
   margin-right: auto;
   margin-left: auto;
 
-
   .registerTitle {
     text-align: left !important;
     padding-bottom: 30px;
@@ -84,7 +83,7 @@ const StyledContainer = styled.div`
     float: left;
     width: 20%;
     padding-left: 40px;
-    text-align: left
+    text-align: left;
   }
 
   .col75 {
@@ -212,14 +211,10 @@ const MissingWrite = ({
 
   return (
     <StyledContainer>
-        <div className="registerTitle">
-          반려동물 정보를 입력해주세요.
-        </div>
-        <div clssName="wrapper">
-          <div className="petRegister">
-            <div className="row">
-
-            </div>
+      <div className="registerTitle">반려동물 정보를 입력해주세요.</div>
+      <div clssName="wrapper">
+        <div className="petRegister">
+          <form>
             <div className="row">
               <div className="col25">
                 <label for="title">이름</label>
@@ -330,9 +325,10 @@ const MissingWrite = ({
                 />
               </div>
             </div>
-          </div>
-          <div id="map"></div>
+          </form>
         </div>
+        <div id="map"></div>
+      </div>
     </StyledContainer>
   );
 };
