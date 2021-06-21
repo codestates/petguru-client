@@ -36,11 +36,21 @@ const Register = () => {
 
   useEffect(() => {
     if (auth) {
-      alert("회원가입 완료");
-      // 로그인 페이지 이동 전에 state 초기화
-      router.push("/login");
+      alert('회원가입 완료');
+      router.push('/login')
     }
   }, [auth]);
+
+  useEffect(() => {
+    if (user) {
+      router.push('/login');
+      try {
+        localStorage.setItem('user', JSON.stringify(user));
+      } catch (e) {
+        console.log('localStorage is not working');
+      }
+    }
+  })  
 
   useEffect(() => {
     if (authError) {

@@ -23,21 +23,18 @@ const PostList = ({ missingList, error, loading, posts }) => {
   } */
   
   return (
-    <CardContainer>
-      {missingList.map(data => {
-        return <CardItem id={data.id} url={data.url} name={data.name} type={data.type} sex={data.sex} location={data.location} missing_date={data.missing_date} born_year={data.born_year}   />
-        })
-      }
-      {/*
-        !loading && posts && (
-          <div>
-            {posts.map(post => (
+    <div>
+      {
+        !loading && posts &&
+        (
+          <CardContainer>
+            {posts.list?.map(post => (
               <CardItem post={post} key={post.id} />
             ))}
-          </div>
+          </CardContainer>
         )
-            */}
-    </CardContainer>
+      }
+    </div>
   );
 }
 

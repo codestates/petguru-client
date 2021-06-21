@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const client = axios.create({
   baseURL: 'http://localhost:5000'
+  // baseURL: 'ec2-3-18-214-150.us-east-2.compute.amazonaws.com:3000'
 });
 
 /*
