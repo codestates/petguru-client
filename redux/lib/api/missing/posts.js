@@ -12,7 +12,7 @@ export const writePost = ({contents, pet_name, type, sex, born_year, location, l
     })
 }
 
-export const readPost = id => client.get(`/missing/posts/${id}`);
+export const readPost = id => client.get(`/missing/posts/${id}`)
 
 export const listPosts = (lastId) => client.get(`/missing/posts?${lastId || 0}`)
 
