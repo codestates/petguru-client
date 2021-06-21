@@ -13,6 +13,7 @@ const Navbar = ({ children, props }) => {
   const dispatch = useDispatch();
   const onLogout = () => {
     dispatch(logout());
+    alert('로그아웃에 성공했습니다.');
     router.push('/');
   }
   return (
@@ -26,7 +27,7 @@ const Navbar = ({ children, props }) => {
               <a><Link href="/mypage">MyPage</Link></a>
             </li>
             <li onClick={onLogout}>
-              Logout
+              <a>Logout</a>
             </li>
           </nav>
         </header>

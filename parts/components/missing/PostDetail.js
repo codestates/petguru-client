@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Head from "next/head";
 import styled from "styled-components";
 import Responsive from "../common/Responsive";
 import Navbar from "../Navbar.js";
 import MissingPage from "../../../styles/MissingPage";
 
+/*global kakao*/
 
 const PostViewerBlock = styled(Responsive)`
   margin-top: 4rem;
@@ -38,28 +39,60 @@ const PostContent = styled.div`
 
 const PostDetail = ({ post, error, loading, user, actionButtons }) => {
   // 에러 발생 시
-  // if (error) {
-  //   if (error.response && error.response.status === 404) {
-  //     return <PostViewerBlock>존재하지 않는 게시물입니다.</PostViewerBlock>
-  //   }
-  //   return <PostViewerBlock>오류가 발생했습니다.</PostViewerBlock>
-  // }
+  if (error) {
+    if (error.response && error.response.status === 404) {
+      return <PostViewerBlock>존재하지 않는 게시물입니다.</PostViewerBlock>;
+    }
+    return <PostViewerBlock>오류가 발생했습니다.</PostViewerBlock>;
+  }
 
   // 로딩 || 포스트 데이터가 없을 때
   // if (loading || !post) {
   //   return null;
   // }
   // 포스트 데이터가 있을 때
-  // const { username, name, title, contents, type, sex, born_year, location, missing_date, image_url, created_at } = post;
-  const title = "테스트";
-  const username = "손영산";
-  const name = "깨비";
-  const type = "푸들";
-  const sex = "수컷";
-  const born_year = 2017;
-  const location = "원흥역";
-  const missing_date = "3 days ago";
-  const contents = "깨비를 찾아주세요 ㅠ";
+  if (!post) {
+    return <PostViewerBlock>오류가 발생했습니다.</PostViewerBlock>;
+  }
+  const {
+    pet_name,
+    title,
+    contents,
+    type,
+    sex,
+    born_year,
+    location,
+    latitude,
+    longitude,
+    missing_date,
+    image_url,
+    created_at,
+  } = post;
+
+  useEffect(() => {
+    console.log(latitude, longitude)
+    var mapContainer = document.getElementById("detailMap"), // 지도를 표시할 div
+      mapOption = {
+        center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
+        level: 3, // 지도의 확대 레벨
+      };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+    // 마커가 표시될 위치입니다
+    var markerPosition = new kakao.maps.LatLng(latitude,longitude);
+
+    // 마커를 생성합니다
+    var marker = new kakao.maps.Marker({
+      position: markerPosition,
+    });
+
+    // 마커가 지도 위에 표시되도록 설정합니다
+    marker.setMap(map);
+
+    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
+    // marker.setMap(null);
+  }, []);
   return (
     <>
       <Head>
@@ -69,32 +102,31 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
       <MissingPage>
         <section class="first">
           <div class="backgroundImage" />
-
+          <PostViewerBlock>
+            <PostHead>
+              <h1>{title}</h1>
+              <SubInfo>
+                <span>
+                  <b>유저이름</b>
+                </span>
+                <span>글 작성일: {new Date().toLocaleDateString()}</span>
+              </SubInfo>
+            </PostHead>
+            {actionButtons}
+            <PostContent>
+              <div>이미지 공간</div>
+              <div>펫 이름: {pet_name}</div>
+              <div>품종: {type}</div>
+              <div>성별: {sex}</div>
+              <div>출생년도: {born_year}</div>
+              <div>실종 장소: {location}</div>
+              <div>실종 날짜: {missing_date}</div>
+              <p>내용: {contents}</p>
+            </PostContent>
+          </PostViewerBlock>
+          <div id="detailMap" style={{width:"100%", height:"500px"}}></div>
         </section>
       </MissingPage>
-
-      {/* <PostViewerBlock>
-        <PostHead>
-          <h1>{title}</h1>
-          <SubInfo>
-            <span>
-              <b>{username}</b>
-            </span>
-            <span>글 작성일: {new Date().toLocaleDateString()}</span>
-          </SubInfo>
-        </PostHead>
-        {actionButtons}
-        <PostContent>
-          <div>이미지 공간</div>
-          <div>펫 이름: {name}</div>
-          <div>품종: {type}</div>
-          <div>성별: {sex}</div>
-          <div>나이: {born_year}</div>
-          <div>실종 장소: {location}</div>
-          <div>실종 날짜: {missing_date}</div>
-          <p>내용: {contents}</p>
-        </PostContent>
-      </PostViewerBlock> */}
     </>
   );
 };
