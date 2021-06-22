@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Responsive from "../common/Responsive";
 import Navbar from "../Navbar.js";
 import MissingPage from "../../../styles/MissingPage";
+import MapContent from "../MapContent";
 
 /*global kakao*/
 
@@ -32,9 +33,16 @@ const SubInfo = styled.div`
   }
 `;
 const PostContent = styled.div`
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: cneter;
   font-size: 1.3125rem;
   color: #343a40;
   margin-bottom: 3rem;
+  div + div {
+    margin: 10px;
+  }
 `;
 
 const PostDetail = ({ post, error, loading, user, actionButtons }) => {
@@ -54,6 +62,7 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
   if (!post) {
     return <PostViewerBlock>오류가 발생했습니다.</PostViewerBlock>;
   }
+
   const {
     pet_name,
     title,
@@ -67,32 +76,8 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
     missing_date,
     image_url,
     created_at,
-  } = post;
+  } = post.missingInfo;
 
-  useEffect(() => {
-    console.log(latitude, longitude)
-    var mapContainer = document.getElementById("detailMap"), // 지도를 표시할 div
-      mapOption = {
-        center: new kakao.maps.LatLng(latitude, longitude), // 지도의 중심좌표
-        level: 3, // 지도의 확대 레벨
-      };
-
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-    // 마커가 표시될 위치입니다
-    var markerPosition = new kakao.maps.LatLng(latitude,longitude);
-
-    // 마커를 생성합니다
-    var marker = new kakao.maps.Marker({
-      position: markerPosition,
-    });
-
-    // 마커가 지도 위에 표시되도록 설정합니다
-    marker.setMap(map);
-
-    // 아래 코드는 지도 위의 마커를 제거하는 코드입니다
-    // marker.setMap(null);
-  }, []);
   return (
     <>
       <Head>
@@ -104,18 +89,12 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
           <div class="backgroundImage" />
           <PostViewerBlock>
             <PostHead>
-              <h1>{title}</h1>
-              <SubInfo>
-                <span>
-                  <b>유저이름</b>
-                </span>
-                <span>글 작성일: {new Date().toLocaleDateString()}</span>
-              </SubInfo>
+              <h1> 찾습니다! { pet_name }</h1>
             </PostHead>
-            {actionButtons}
+              {actionButtons}
             <PostContent>
               <div>이미지 공간</div>
-              <div>펫 이름: {pet_name}</div>
+              <div>실종 동물 이름: {pet_name}</div>
               <div>품종: {type}</div>
               <div>성별: {sex}</div>
               <div>출생년도: {born_year}</div>
@@ -124,7 +103,7 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
               <p>내용: {contents}</p>
             </PostContent>
           </PostViewerBlock>
-          <div id="detailMap" style={{width:"100%", height:"500px"}}></div>
+          <MapContent post={post}/>
         </section>
       </MissingPage>
     </>

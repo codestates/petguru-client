@@ -28,14 +28,12 @@ const ActionButton = styled.button`
   }
 `;
 
-const PostActionButtons = () => {
+const PostActionButtons = ({onEdit, onRemove}) => {
   const [modal, setModal] = useState(false);
 
-  const onEdit = () => {
-    console.log('수정합니다');
-  }
   const onRemoveClick = () => {
     setModal(true);
+    onRemove();
   };
   const onCancel = () => {
     console.log('취소');

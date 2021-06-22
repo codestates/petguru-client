@@ -7,14 +7,15 @@ import PostActionButtons from '../components/missing/PostActionButtons';
 import { setOriginalPost } from '../../redux/modules/missing_write';
 import { removePost } from '../../redux/lib/api/missing/posts';
 
-const PostDetailContainer = ({postId}) => {
+const PostDetailContainer = ({ postId }) => {
+  const router = useRouter();
   const dispatch = useDispatch();
 
   // 첫 마운트 시에 포스트 읽기 API 요청
   const { post, error, loading, user } = useSelector(({ post, loading, user }) => ({
     post: post.post,
     error: post.error,
-    loading: loading,
+    loading: loading['post/READ_POST'],
     user: user.user,
   }));
 
