@@ -91,7 +91,7 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
             <PostHead>
               <h1> 찾습니다! { pet_name }</h1>
             </PostHead>
-            {actionButtons}
+              {actionButtons}
             <PostContent>
               <div>이미지 공간</div>
               <div>실종 동물 이름: {pet_name}</div>

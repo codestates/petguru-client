@@ -3,6 +3,7 @@ import React, { useEffect, useCallback, useRef } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import getMarkers from "../../lib/getMarkers";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -132,7 +133,9 @@ const MissingWrite = ({
   longitude,
   latitude,
   onChangeField,
+  post
 }) => {
+  const date = useRef(null);
   const displayMarker = (map) => {
     const marker = new window.kakao.maps.Marker({});
 
@@ -186,6 +189,13 @@ const MissingWrite = ({
   useEffect(() => {
     mapScript();
   }, []);
+
+  const mounted = useRef(false);
+  useEffect(() => {
+    if (mounted.current) return
+    mounted.current = true;
+    date.current.innerHTML = missing_date;
+  })
 
   const onChangeName = (e) => {
     onChangeField({ key: "pet_name", value: e.target.value });
@@ -279,6 +289,7 @@ const MissingWrite = ({
               </div>
               <div className="col75">
                 <input
+                  ref={date}
                   type="date"
                   value={missing_date}
                   className="inputDate"

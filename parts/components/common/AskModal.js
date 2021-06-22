@@ -17,6 +17,7 @@ const FullScreen = styled.div`
 const AskModalBlock = styled.div`
   width: 320px;
   background: white;
+  margin: auto;
   padding: 1.5rem;
   border-radius: 4px;
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.125);
@@ -29,12 +30,12 @@ const AskModalBlock = styled.div`
   }
   .buttons {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
 `;
 
 const StyledButton = styled(Button)`
-  height: 2rem;
+  padding: 16px;
   & + & {
     margin-left: 0.75rem;
   }

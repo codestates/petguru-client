@@ -21,12 +21,13 @@ const WriteActionButtonsContainer = () => {
     longitude: write.longitude,
     post: write.post,
     postError: write.postError,
-    originalPostId: write.originalPostId,
+    originalPostId: write.orginalPostId
   }));
 
   // 포스트 등록
   const onPublish = () => {
     if (originalPostId) {
+      const parm = originalPostId;
       dispatch(updatePost
         ({
           pet_name,
@@ -35,11 +36,15 @@ const WriteActionButtonsContainer = () => {
           sex,
           location,
           missing_date,
+          longitude,
+          latitude,
           // image_url,
           born_year,
           id: originalPostId
         })
       );
+      alert('게시물 수정이 완료됐습니다.');
+      router.push(`/missing/${parm}`)
       return;
     }
 
@@ -81,7 +86,7 @@ const WriteActionButtonsContainer = () => {
         writePost({ contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date /*image_url*/ })
       );
       alert('게시물이 등륵되었습니다.')
-      // router.push('/missing');
+      router.push('/missing');
     }
   };
 
@@ -101,7 +106,7 @@ const WriteActionButtonsContainer = () => {
     }
   }, [post, postError]);
   return (
-    <WriteActionButtons onPublish={onPublish} onCancel={onCancel} isEdit={originalPostId} />
+    <WriteActionButtons onPublish={onPublish} onCancel={onCancel} isEdit={originalPostId || null} />
   );
 }
 
