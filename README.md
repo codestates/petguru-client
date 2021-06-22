@@ -1,34 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 모든 반려인의 동반자 PetGuru
 
-## Getting Started
+내 반려동물을 더 깊이 알고 싶다면,
 
-First, run the development server:
+> PetGuru에 질문을 등록하고 궁금증을 해결하세요! <br>
+> 수의사, 훈련사 및 전문가 인증 멘토들이 답변해줄 거에요!
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+반려동물을 잃어 버리셨나요?
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+> PetGuru에 실종 신고 기능을 이용하세요!<br>
+> 반려동물의 정보와 실종된 지역을 등록하면<br>
+> 많은 반려인들이 도움을 드릴 거에요!
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# 🛠 Tech stack
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![](https://i.ibb.co/NWbVbbM/stack.jpg)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# 기능 플로우
 
-## Learn More
+## Front-End
 
-To learn more about Next.js, take a look at the following resources:
+![](https://i.ibb.co/26758CW/flow.jpg)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Back-End
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![](https://i.ibb.co/2nDxRSs/backflow.jpg)
 
-## Deploy on Vercel
+# 주요 기능
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Q&A
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+---
+
+## 실종신고
+
+# 멤버 소개
+
+|  이름  | 직무 |  담당  |         이메일          |
+| :----: | :--: | :----: | :---------------------: |
+| 김광석 | 팀장 | 프론트 | dreaming.seok@gmail.com |
+| 손영산 | 팀원 | 프론트 | yeongsan.dev@gmail.com  |
+| 정승준 | 팀원 | 백엔드 | junapossible@gmail.com  |
+| 김슬안 | 팀원 | 백엔드 |   sakim5027@gmail.com   |
+
+# 프로젝트 상세 정보
+
+[프로젝트 상세 정보](https://github.com/codestates/petguru-client/wiki)
