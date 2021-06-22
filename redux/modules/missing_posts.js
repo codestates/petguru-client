@@ -9,6 +9,12 @@ const [
   LIST_POSTS_ERROR
 ] = createRequestActionTypes('posts/LIST_POSTS');
 
+
+const initialState = {
+  posts: [],
+  error: null,
+}
+
 export const listPosts = createAction(
   LIST_POSTS,
   (lastId) => (lastId)
@@ -17,11 +23,6 @@ export const listPosts = createAction(
 const listPostsSaga = createRequestSaga(LIST_POSTS, postsAPI.listPosts);
 export function* postsSaga() {
   yield takeLatest(LIST_POSTS, listPostsSaga);
-}
-
-const initialState = {
-  posts: [],
-  error: null,
 }
 
 const posts = handleActions(
