@@ -8,7 +8,7 @@ const missingList = [
   {
     id: 1,
     url: "/images/mockDogImg/mal.jpeg",
-    name: "쫑이",
+    pet_name: "쫑이",
     type: "말티즈",
     sex: "수컷",
     location: "대구시 북구 칠성동 2가",
@@ -18,7 +18,7 @@ const missingList = [
   {
     id: 2,
     url: "/images/mockDogImg/pome.jpeg",
-    name: "축복이",
+    pet_name: "축복이",
     type: "포메라니안",
     sex: "수컷",
     location: "서울시 송파구 가락동 913",
@@ -28,7 +28,7 @@ const missingList = [
   {
     id: 3,
     url: "/images/mockDogImg/samo.png",
-    name: "복실이",
+    pet_name: "복실이",
     type: "사모예드",
     sex: "암컷",
     location: "경기 이천시 진리동 394-1",
@@ -38,7 +38,7 @@ const missingList = [
   {
     id: 4,
     url: "/images/mockDogImg/siba.jpeg",
-    name: "사월이",
+    pet_name: "사월이",
     type: "시바견",
     sex: "암컷",
     location: "서울 도봉구 쌍문동 659-1",
@@ -48,7 +48,7 @@ const missingList = [
   {
     id: 5,
     url: "/images/mockDogImg/spitz.jpeg",
-    name: "피치",
+    pet_name: "피치",
     type: "스피츠",
     sex: "암컷",
     location: "경기 성남시 분당구 야탑동 334",
@@ -58,7 +58,7 @@ const missingList = [
   {
     id: 6,
     url: "/images/mockDogImg/siba.jpeg",
-    name: "사월이",
+    pet_name: "사월이",
     type: "시바견",
     sex: "암컷",
     location: "서울 도봉구 쌍문동 659-1",
@@ -68,7 +68,7 @@ const missingList = [
   {
     id: 7,
     url: "/images/mockDogImg/samo.png",
-    name: "복실이",
+    pet_name: "복실이",
     type: "사모예드",
     sex: "암컷",
     location: "경기 이천시 진리동 394-1",
@@ -78,7 +78,7 @@ const missingList = [
   {
     id: 8,
     url: "/images/mockDogImg/mal.jpeg",
-    name: "쫑이",
+    pet_name: "쫑이",
     type: "말티즈",
     sex: "수컷",
     location: "대구시 북구 칠성동 2가",

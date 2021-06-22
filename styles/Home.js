@@ -7,6 +7,8 @@ const MainPage = styled.div
   position: relative;
 	justify-content: center;
 	min-height: 80vh;
+  padding-left: 80px;
+  padding-right: 80px;
 	color: #798777;
 	text-align: center;
 }
@@ -38,8 +40,8 @@ const MainPage = styled.div
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  width: 100%;
+  height: 576px;
+  width: 1024px;
   background-color: white;
   color: black;
   margin: 15px;
@@ -288,7 +290,7 @@ p {
 }
 
 .text-center {
-  text-align: center !important;
+  text-align: left !important;
 }
 
 .p-4 {
@@ -354,6 +356,7 @@ p {
 
 .mb-0 {
   margin-bottom: 0 !important;
+  text-align: right;
 }
 
 `
