@@ -1,42 +1,40 @@
-import PropTypes from "prop-types";
-import Link from "next/link";
+import PropTypes from 'prop-types'
+import Link from 'next/link';
 import { useRouter } from "next/router";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../redux/modules/user";
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../redux/modules/user';
+
 
 const Navbar = ({ children, props }) => {
   const router = useRouter();
   const { user } = useSelector(({ user }) => ({
-    user: user.user,
+    user: user.user
   }));
   const dispatch = useDispatch();
   const onLogout = () => {
     dispatch(logout());
-    router.push("/");
-  };
+    alert('로그아웃에 성공했습니다.');
+    router.push('/');
+  }
   return (
     <>
-      <header>
-        <h2>
-          <a>
-            <Link href="/home">
-              <img src="img/logo.png" class="logo" />
-            </Link>
-          </a>
-        </h2>
-        <nav>
-          <li>
-            <a>
-              <Link href="/mypage">MyPage</Link>
-            </a>
-          </li>
-          <li onClick={onLogout}>Logout</li>
-        </nav>
-      </header>
+        <header>
+          <h2>
+            <a><Link href="/home">Petguru</Link></a>
+          </h2>
+          <nav>
+            <li>
+              <a><Link href="/mypage">MyPage</Link></a>
+            </li>
+            <li onClick={onLogout}>
+              <a>Logout</a>
+            </li>
+          </nav>
+        </header>
       {children}
     </>
-  );
-};
+  )
+}
 /*
 export default function NavigationBar({children}) {
   return (

@@ -83,6 +83,18 @@ export default function Login() {
     }
   }, [auth, authError, dispatch]);
 
+
+  useEffect(() => {
+    if (user) {
+      router.push("/home");
+      try {
+        localStorage.setItem("user", JSON.stringify(user));
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [router, user]);
+
   // useEffect(() => {
   //   if (user) {
   //     router.push("/home");
@@ -161,6 +173,7 @@ export default function Login() {
                   buttonText="Login"
                   onSuccess={responseGoogle}
                   onFailure={responseGoogle}
+                  cookiePolicy={"single_host_origin"}
                 />
                 <button type="button" className="btn-login">
                   <Link href="/home">Guest 로그인</Link>

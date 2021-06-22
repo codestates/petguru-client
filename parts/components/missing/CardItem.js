@@ -1,6 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import { readPost } from '../../../redux/modules/missing_post';
+import { useDispatch } from 'react-redux';
+import PostDetail from './PostDetail';
 
 const ContentsCard = styled.div`
   width: 280px;
@@ -45,9 +48,11 @@ const ContentsCard = styled.div`
 const CardItem = ({ post }) => {
   const { id, pet_name, type, sex, location, missing_date, born_year, image_url } = post;
   const router = useRouter();
+  const dispatch = useDispatch();
 
   // API 호출 POSTDETAIL
   const onClick = () => {
+    dispatch(readPost(id));
     router.push(`/missing/${id}`);
   }
   return (

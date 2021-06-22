@@ -58,6 +58,7 @@ const WriteActionButtonsContainer = () => {
     // for (let value of formData.values()) {
     //   console.log(value);
     // }
+    // 두 개의 라우터로 나누어서
 
     if (
       !contents ||
