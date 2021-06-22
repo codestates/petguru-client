@@ -58,7 +58,7 @@ const CardItem = ({ post }) => {
   return (
     <ContentsCard onClick={onClick}>
       <div>
-        <img src={image_url} />
+        <img src={require('../img/basic-img.jpeg')} />
       </div>
       <div className="contents">
         <div className="contents-title">이름 : { pet_name }</div>

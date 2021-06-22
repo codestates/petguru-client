@@ -36,7 +36,6 @@ const PostActionButtons = ({onEdit, onRemove}) => {
     onRemove();
   };
   const onCancel = () => {
-    console.log('취소');
     setModal(false);
   }
   const onConfirm = () => {

@@ -93,7 +93,6 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
             </PostHead>
               {actionButtons}
             <PostContent>
-              <div>이미지 공간</div>
               <div>실종 동물 이름: {pet_name}</div>
               <div>품종: {type}</div>
               <div>성별: {sex}</div>
