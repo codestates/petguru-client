@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import PostList from '../components/missing/PostList';
 import { listPosts } from '../../redux/modules/missing_posts';
@@ -92,6 +92,7 @@ const MissingContainer = () => {
   const { posts, error, loading, user } = useSelector(
     ({ posts, loading, user }) => ({
       posts: posts.posts,
+      limit: posts.limit,
       error: posts.error,
       loading: loading['posts/LIST_POSTS'],
       user: user.user,
@@ -103,6 +104,7 @@ const MissingContainer = () => {
     console.log('lastId : ', lastId)
     dispatch(listPosts(lastId));
   }, [dispatch]);
+
   return (
     <PostList missingList={missingList} loading={loading} posts={posts} error={error} />
   );
