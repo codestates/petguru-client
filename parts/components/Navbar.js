@@ -19,8 +19,12 @@ const Navbar = ({ children, props }) => {
   return (
     <>
         <header>
-          <h2>
-            <a><Link href="/home">Petguru</Link></a>
+        <h2>
+            <a>
+              <Link href="/home">
+                <img src="img/logo.png" class="logo" />
+              </Link>
+            </a>
           </h2>
           <nav>
             <li>
