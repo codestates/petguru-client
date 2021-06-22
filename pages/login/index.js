@@ -53,7 +53,6 @@ export default function Login() {
   const onSubmit = (e) => {
     e.preventDefault();
     const { email, password } = form;
-
     console.log('email: ', email);
     dispatch(login({ email, password }));
   };
@@ -107,7 +106,6 @@ export default function Login() {
   //   }
   // }, [router, user]);
 
-
   return (
     <>
       <Head>
@@ -117,7 +115,6 @@ export default function Login() {
         <header>
           <h2>
             <a>
-
               <Link href="/">
                 <img src="img/logo.png" class="logo" />
               </Link>

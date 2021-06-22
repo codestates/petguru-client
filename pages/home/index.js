@@ -5,6 +5,7 @@ import NavBar from "../../parts/components/Navbar";
 import PropTypes from "prop-types";
 import MainPage from "../../styles/Home.js";
 import Carousel from "react-elastic-carousel";
+import MissingContainer from "../../parts/containers/MissingContainer";
 
 const Home = ({ children, props }) => {
   return (
@@ -18,10 +19,9 @@ const Home = ({ children, props }) => {
           <section class="banner">
             <div class="backgroundImage" />
             <Carousel itemsToShow={1}>
-              <div class="bannerImage" style={{backgroundImage: "url(img/1.jpeg)", backgroundSize: "contain"}}></div>
-              <div class="bannerImage" style={{backgroundImage: "url(img/2.jpeg)", backgroundSize: "contain"}}></div>
-              <div class="bannerImage" style={{backgroundImage: "url(img/3.jpeg)", backgroundSize: "contain"}}></div>
-              <div class="bannerImage" style={{backgroundImage: "url(img/4.jpeg)", backgroundSize: "contain"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/b1.jpeg)", backgroundSize: "contain"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/b2.jpeg)", backgroundSize: "contain"}}></div>
+              <div class="bannerImage" style={{backgroundImage: "url(img/b3.jpeg)", backgroundSize: "contain"}}></div>
             </Carousel>
           </section>
 
@@ -47,10 +47,9 @@ const Home = ({ children, props }) => {
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
                           <i class="bi bi-collection"></i>
                         </div>
-                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <h2 class="fs-4 fw-bold">강아지 이빨 쉽게 닦는 방법은?</h2>
                         <div class="mb-0">
-                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
-                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        <br/>♥ 21&nbsp; ✔️ 4
                         </div>
                       </div>
                     </div>
@@ -61,10 +60,9 @@ const Home = ({ children, props }) => {
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
                           <i class="bi bi-collection"></i>
                         </div>
-                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <h2 class="fs-4 fw-bold">고양이에게 강아지사료를 먹여도 되나요?</h2>
                         <div class="mb-0">
-                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
-                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        <br/>♥ 6&nbsp; ✔️ 1
                         </div>
                       </div>
                     </div>
@@ -75,10 +73,9 @@ const Home = ({ children, props }) => {
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
                           <i class="bi bi-collection"></i>
                         </div>
-                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <h2 class="fs-4 fw-bold">천식에 고양이털이 안좋나요?</h2>
                         <div class="mb-0">
-                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
-                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        <br/>♥ 13&nbsp; ✔️ 2
                         </div>
                       </div>
                     </div>
@@ -89,10 +86,9 @@ const Home = ({ children, props }) => {
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
                           <i class="bi bi-collection"></i>
                         </div>
-                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <h2 class="fs-4 fw-bold">고양이는 목욕을 시키면 안되나요?</h2>
                         <div class="mb-0">
-                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
-                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        <br/>♥ 6&nbsp; ✔️4
                         </div>
                       </div>
                     </div>
@@ -103,10 +99,9 @@ const Home = ({ children, props }) => {
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
                           <i class="bi bi-collection"></i>
                         </div>
-                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <h2 class="fs-4 fw-bold">강아지 목욕 얼마주기로 시켜야하나요?</h2>
                         <div class="mb-0">
-                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
-                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        <br/>♥ 8&nbsp; ✔️1
                         </div>
                       </div>
                     </div>
@@ -117,10 +112,9 @@ const Home = ({ children, props }) => {
                         <div class="feature bg-primary bg-gradient text-white rounded-3 mb-4 mt-n4">
                           <i class="bi bi-collection"></i>
                         </div>
-                        <h2 class="fs-4 fw-bold">우리집 강아지가 이상해요.</h2>
+                        <h2 class="fs-4 fw-bold">강아지 귀에 물들어가도 되나요?</h2>
                         <div class="mb-0">
-                          밥 먹기 전에 항상 밥 그릇 앞에서 폴짝폴짝 뛰고
-                          왔다갔다하면서 자꾸 이상한 행동을 해요.
+                        <br/>♥ 12&nbsp; ✔️ 3
                         </div>
                       </div>
                     </div>
@@ -132,7 +126,8 @@ const Home = ({ children, props }) => {
 
           <section class="third">
             <h3 class="title">Find My Pet</h3>
-            <div class="missingPet">
+            <MissingContainer />
+            {/* <div class="missingPet">
               <div class="missingPetImg"></div>
             </div>
             <div class="missingPet">
@@ -143,7 +138,7 @@ const Home = ({ children, props }) => {
             </div>
             <div class="missingPet">
               <div class="missingPetImg"></div>
-            </div>            
+            </div>             */}
           </section>
         </MainPage>
       </body>
