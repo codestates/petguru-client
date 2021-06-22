@@ -22,7 +22,7 @@ const Navbar = ({ children, props }) => {
         <h2>
             <a>
               <Link href="/home">
-                <img src="img/logo.png" class="logo" />
+                <img src="/img/logo.png" class="logo" />
               </Link>
             </a>
           </h2>
