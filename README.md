@@ -27,11 +27,45 @@
 
 # 주요 기능
 
+## 회원가입
+
+![](https://i.ibb.co/TkxMFp8/register.gif)
+
+## 로그인
+
+![](https://i.ibb.co/5kN692r/login.gif)
+
+## 구글 로그인
+
+![](https://i.ibb.co/JH1kL24/google-Login.gif)
+
+## 로그아웃
+
+![](https://i.ibb.co/wdBs970/logout.gif)
+
+---
+
 ## Q&A
 
 ---
 
 ## 실종신고
+
+### 게시물 등록
+
+![](https://i.ibb.co/3mt9dD5/submit-Post.gif)
+
+### 게시물 가져오기
+
+![](https://i.ibb.co/hC64g9V/getPosts.gif)
+
+### 게시물 수정
+
+![](https://i.ibb.co/HD3bKrm/editPost.gif)
+
+### 게시물 삭제
+
+![](https://i.ibb.co/vC9Ptyj/Delete-Post.gif)
 
 # 멤버 소개
 
