@@ -13,6 +13,7 @@ import {
 } from "../../redux/modules/auth";
 import { check } from "../../redux/modules/user";
 import SignUpSignIn from "../../styles/SignUpSignIn";
+import Swal from "sweetalert2";
 
 const StyledGoogleLogin = styled(GoogleLogin)`
   width: 100%;
@@ -77,7 +78,11 @@ export default function Login() {
       return;
     }
     if (auth) {
-      alert("로그인 성공");
+      Swal.fire(
+        '반가워요!',
+        '로그인 성공',
+        'success'
+      );
       router.push("/home");
       // dispatch(check());
     }

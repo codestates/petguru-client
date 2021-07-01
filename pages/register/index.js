@@ -11,6 +11,7 @@ import {
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { initialize } from "../../redux/modules/missing_write";
+import Swal from 'sweetalert2';
 
 const ErrorMessage = styled.div`
   color: red;
@@ -36,11 +37,16 @@ const Register = () => {
 
   useEffect(() => {
     if (auth) {
-      alert("회원가입 완료");
-      // 로그인 페이지 이동 전에 state 초기화
+      Swal.fire(
+        '환영해요!',
+        '회원가입 성공',
+        'success'
+      )
       router.push("/login");
     }
-  }, [auth]);
+  }, [auth])
+
+  ;
 
   useEffect(() => {
     if (user) {
