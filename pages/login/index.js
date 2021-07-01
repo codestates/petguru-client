@@ -78,11 +78,12 @@ export default function Login() {
       return;
     }
     if (auth) {
-      Swal.fire(
-        '반가워요!',
-        '로그인 성공',
-        'success'
-      );
+      Swal.fire({
+        icon: 'success',
+        title: '반가워요!!',
+        text: '로그인 성공',
+        confirmButtonColor: '#798777'
+      });
       router.push("/home");
       // dispatch(check());
     }

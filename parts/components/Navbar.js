@@ -14,11 +14,12 @@ const Navbar = ({ children, props }) => {
   const dispatch = useDispatch();
   const onLogout = () => {
     dispatch(logout());
-    Swal.fire(
-      '또 봐요!',
-      '로그아웃 성공',
-      'success'
-    );
+    Swal.fire({
+      icon: 'success',
+      title: '또 봐요!',
+      text: '로그아웃 성공',
+      confirmButtonColor: '#798777'
+    });
     router.push('/');
   }
   return (

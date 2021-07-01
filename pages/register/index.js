@@ -37,11 +37,12 @@ const Register = () => {
 
   useEffect(() => {
     if (auth) {
-      Swal.fire(
-        '환영해요!',
-        '회원가입 성공',
-        'success'
-      )
+      Swal.fire({
+        icon: 'success',
+        title: '환영해요!',
+        text: '회원가입 성공',
+        confirmButtonColor: '#798777'
+      });
       router.push("/login");
     }
   }, [auth])
