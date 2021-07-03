@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { useRouter } from "next/router";
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../redux/modules/user';
+import Swal from 'sweetalert2';
 
 
 const Navbar = ({ children, props }) => {
@@ -13,7 +14,12 @@ const Navbar = ({ children, props }) => {
   const dispatch = useDispatch();
   const onLogout = () => {
     dispatch(logout());
-    alert('로그아웃에 성공했습니다.');
+    Swal.fire({
+      icon: 'success',
+      title: '또 봐요!',
+      text: '로그아웃 성공',
+      confirmButtonColor: '#798777'
+    });
     router.push('/');
   }
   return (
