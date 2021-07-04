@@ -4,6 +4,8 @@ import styled from "styled-components";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import getMarkers from "../../lib/getMarkers";
+import FormData from "form-data";
+import { uploadImage } from "../../../../redux/modules/missing_write";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -135,6 +137,7 @@ const MissingWrite = ({
   onChangeField,
   post
 }) => {
+  const dispatch = useDispatch();
   const date = useRef(null);
   const displayMarker = (map) => {
     const marker = new window.kakao.maps.Marker({});
@@ -215,16 +218,27 @@ const MissingWrite = ({
   const onChangeContents = (e) => {
     onChangeField({ key: "contents", value: e.target.value });
   };
-  const onChangeImage = (e) => {
-    onChangeField({ key: "image_url", value: e.target.value });
-  };
+  const onChangeImage = useCallback((e) => {
+    console.log('images', e.target.files);
+    const imageFormData = new FormData();
+    // [].forEach.call(e.target.files, (f) => {
+    //   imageFormData.append('image', f);
+    // })
+    imageFormData.append('image', e.target.files);
+    for (var value of imageFormData.values()) {
+      console.log('onChangeImage 실행중', value);
+    }
+    
+    dispatch(uploadImage({ imageFormData }));
+    // onChangeField({ key: "image_url", value: e.target.value });
+  }, [dispatch]);
 
   return (
     <StyledContainer>
       <div className="registerTitle">반려동물 정보를 입력해주세요.</div>
       <div clssName="wrapper">
         <div className="petRegister">
-          <form>
+          <form encType="multipart/form-data">
             <div className="row">
               <div className="col25">
                 <label for="title">이름</label>
