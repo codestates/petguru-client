@@ -90,17 +90,6 @@ export default function Login() {
   }, [auth, authError, dispatch]);
 
 
-  useEffect(() => {
-    if (user) {
-      router.push("/home");
-      try {
-        localStorage.setItem("user", JSON.stringify(user));
-      } catch (e) {
-        console.log(e);
-      }
-    }
-  }, [router, user]);
-
   // useEffect(() => {
   //   if (user) {
   //     router.push("/home");
