@@ -20,12 +20,11 @@ const [WRITE_POST, WRITE_POST_SUCCESS, WRITE_POST_ERROR] =
   createRequestActionTypes("write/WRITE_POST"); // 게시물 작성
 const [UPDATE_POST, UPDATE_POST_SUCCESS, UPDATE_POST_ERROR] =
   createRequestActionTypes("write/UPDATE_POST"); // 게시물 수정
-const [UPLOAD_IMAGE, UPLOAD_IMAGE_SUCCESS, UPLOAD_IMAGE_ERROR] = createRequestActionTypes("write/UPLOAD_IMAGE"); // 이미지 업로드
+
 
 export const writePost = createAction(
   WRITE_POST,
   ({
-    // formData
     contents,
     latitude,
     longitude,
@@ -37,7 +36,6 @@ export const writePost = createAction(
     type,
     sex,
   }) => ({
-    // formData
     contents,
     latitude,
     longitude,
@@ -81,23 +79,16 @@ export const updatePost = createAction(
   }),
 );
 
-export const uploadImage = createAction(
-  UPLOAD_IMAGE,
-  ({ data }) => {
-    console.log('createAction실행', data);
-    return ({ data })
-  }
-)
+
 
 // saga
 const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writePost);
 const updatePostSaga = createRequestSaga(UPDATE_POST, postsAPI.updatePost);
-const uploadImageSaga = createRequestSaga(UPLOAD_IMAGE, postsAPI.postImage);
+
 
 export function* writeSaga() {
   yield takeLatest(WRITE_POST, writePostSaga);
   yield takeLatest(UPDATE_POST, updatePostSaga);
-  yield takeLatest(UPLOAD_IMAGE, uploadImageSaga);
 }
 
 const initialState = {
@@ -111,8 +102,6 @@ const initialState = {
   pet_name: "",
   type: "",
   sex: "",
-  imageFormData: null,
-  imageFormDataError:null,
   post: null,
   postError: null,
   originalPostId: null,
@@ -163,14 +152,6 @@ const write = handleActions(
       ...state,
       postError,
     }),
-    [UPLOAD_IMAGE_SUCCESS]: (state, { payload: imageFormData }) => ({
-      ...state,
-      imageFormData
-    }),
-    [UPLOAD_IMAGE_ERROR]: (state, { payload: imageFormDataError }) => ({
-      ...state,
-      imageFormDataError
-    })
   },
   initialState,
 );

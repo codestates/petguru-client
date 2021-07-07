@@ -93,6 +93,7 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
             </PostHead>
               {actionButtons}
             <PostContent>
+              <img src={`http://localhost:5000/${image_url}`} />
               <div>실종 동물 이름: {pet_name}</div>
               <div>품종: {type}</div>
               <div>성별: {sex}</div>
