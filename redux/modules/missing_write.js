@@ -21,10 +21,10 @@ const [WRITE_POST, WRITE_POST_SUCCESS, WRITE_POST_ERROR] =
 const [UPDATE_POST, UPDATE_POST_SUCCESS, UPDATE_POST_ERROR] =
   createRequestActionTypes("write/UPDATE_POST"); // 게시물 수정
 
+
 export const writePost = createAction(
   WRITE_POST,
   ({
-    // formData
     contents,
     latitude,
     longitude,
@@ -36,7 +36,6 @@ export const writePost = createAction(
     type,
     sex,
   }) => ({
-    // formData
     contents,
     latitude,
     longitude,
@@ -80,9 +79,12 @@ export const updatePost = createAction(
   }),
 );
 
+
+
 // saga
 const writePostSaga = createRequestSaga(WRITE_POST, postsAPI.writePost);
 const updatePostSaga = createRequestSaga(UPDATE_POST, postsAPI.updatePost);
+
 
 export function* writeSaga() {
   yield takeLatest(WRITE_POST, writePostSaga);

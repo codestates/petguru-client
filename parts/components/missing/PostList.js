@@ -29,7 +29,7 @@ const PostList = ({ missingList, error, loading, posts }) => {
     // a fake async api call like which sends
     // 20 more records in .5 secs
     setTimeout(() => {
-      setItems(items.concat(Array.from({ length: 8 })));
+      setItems(items.concat(Array.from({ length: 10 })));
       console.log("setItems 후 items", items);
     }, 500);
   };
