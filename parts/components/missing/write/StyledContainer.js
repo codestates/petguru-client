@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 const StyledContainer = styled.div`
   width: 100%;
-  padding-right: 16px;
-  padding-left: 16px;
-  margin-right: auto;
-  margin-left: auto;
+  padding-right: 80px;
+  padding-left: 80px;
+
 
   .registerTitle {
     text-align: left !important;
-    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-bottom: 10px;
     font-size: 30px;
     font-weight: bold;
   }
@@ -29,7 +29,9 @@ const StyledContainer = styled.div`
   }
 
   .petRegister {
-    width: 100%;
+    width: 50%;
+    float: left;
+    height: 700px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px 0 rgb(96 96 96 / 16%),
       2px 10px 23px 0 rgb(96 96 96 / 13%);
@@ -37,8 +39,9 @@ const StyledContainer = styled.div`
   }
 
   #map {
-    width: 100%;
-    height: 500px;
+    width: 50%;
+    float: left;
+    height: 700px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 5px 0 rgb(96 96 96 / 16%),
       2px 10px 23px 0 rgb(96 96 96 / 13%);
@@ -71,21 +74,21 @@ const StyledContainer = styled.div`
   }
 
   label {
-    padding: 12px 12px 12px 14px;
+    padding: 12px 12px 12px 0px;
     display: inline-block;
   }
 
   .col25 {
     float: left;
-    width: 20%;
-    padding-left: 40px;
+    width: 25%;
     text-align: left;
+    margin-top: 5px;
   }
 
   .col75 {
     float: left;
-    width: 75%;
-    margin-top: 7px;
+    width: 70%;
+    margin: 10px;
   }
 
   .row:after {

@@ -5,8 +5,8 @@ const LandingPageMain = ({ children, props }) => {
     <>
       <section class="first">
         <div class="backgroundImage" style={{ backgroundImage: "url(img/3.jpeg)" }}></div>
-        <h1>반려생활 궁금증 PetGuru와 함께</h1>
-        <h3>반려생활 궁금증 PetGuru와 함께</h3>
+        <h1>반려동물과의 건강한 시간, PetGuru와 함께</h1><br />
+        <h3>모든 궁금증을 질문해서 전문가에게 답을 받고, 잃어버린 반려동물을 PetGuru 반려인들과 함께 찾아요 </h3>
       </section>
 
       <section class="second">
@@ -28,10 +28,10 @@ const LandingPageMain = ({ children, props }) => {
         <br />
         <hr />
         <ul class="grid">
-          <li class="small" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
           <li class="large" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
+          <li class="small" style={{ backgroundImage: "url(img/desc1.jpeg)" }}></li>
+          <li class="small" style={{ backgroundImage: "url(img/desc2.jpeg)" }}></li>
           <li class="large" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
-          <li class="small" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
         </ul>
       </section>
 

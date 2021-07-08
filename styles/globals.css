@@ -98,7 +98,7 @@ section p{
 }
 
 ul.grid{
-	width: 100%;
+	width: 80%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -219,7 +219,7 @@ header nav li:last-child{
 
 .second .grid li{
 	padding: 20px;
-	height: 350px;
+	height: 400px;
 	border-radius: 3px;
 
 	background-clip: content-box;

@@ -3,8 +3,6 @@ import React, { useEffect, useCallback, useRef, useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import FormData from "form-data";
-
-
 import StyledContainer from "./StyledContainer";
 
 
@@ -238,6 +236,7 @@ const MissingWrite = ({
                   value={contents}
                   className="inputDescription"
                   placeholder="내용을 입력하세요"
+                  style={{height: "230px"}}
                   onChange={onChangeContents}
                 />
               </div>

@@ -42,7 +42,7 @@ const WriteActionButtonsContainer = () => {
           id: originalPostId
         })
       );
-      alert('게시물 수정이 완료됐습니다.');
+      ('게시물 수정이 완료됐습니다.');
       router.push(`/missing/${parm}`)
       return;
     }
@@ -59,14 +59,14 @@ const WriteActionButtonsContainer = () => {
       !missing_date ||
       !image_url
     ) {
-      alert('모든 정보를 입력해주세요.');
+      ('모든 정보를 입력해주세요.');
       return;
     } else {
       console.log(contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date)
       dispatch(
         writePost({ contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date, image_url })
       );
-      alert('게시물이 등륵되었습니다.')
+      ('게시물이 등륵되었습니다.')
       router.push('/missing');
     }
   };
