@@ -7,13 +7,14 @@ import getMarkers from "../../lib/getMarkers";
 
 const StyledContainer = styled.div`
   width: 100%;
-  padding-right: 16px;
-  padding-left: 16px;
+  padding-right: 80px;
+  padding-left: 80px;
 
 
   .registerTitle {
-    text-align: center !important;
-    padding-bottom: 30px;
+    text-align: left !important;
+    padding-top: 30px;
+    padding-bottom: 10px;
     font-size: 30px;
     font-weight: bold;
   }
