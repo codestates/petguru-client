@@ -10,8 +10,7 @@ const PostListBlock = styled(Responsive)`
 
 const CardContainer = styled.div`
   width: fit-content;
-  display: flex;
-  justify-content: center;
+  display: flex;  
   flex-wrap: wrap;
   cursor: pointer;
 `;
@@ -43,7 +42,7 @@ const PostList = ({ missingList, error, loading, posts }) => {
   //   return (
   //     <CardContainer>
   //       {missingList.map(data => {
-  //       return <CardItem id={data.id} url={data.url} pet_name={data.pet_name} type={data.type} sex={data.sex} location={data.location} missing_date={data.missing_date} born_year={data.born_year}   />
+  //       return <CardItem id={data.id} url={data.url} pet_name={data.pet_name} type={data.type} sex={data.sex} missing_location={data.missing_location} missing_date={data.missing_date} born_year={data.born_year}   />
   //       })}
   //     </CardContainer>
   //   )

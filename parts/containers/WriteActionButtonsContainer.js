@@ -7,12 +7,12 @@ import WriteActionButtons from '../components/missing/write/WriteActionButtons';
 const WriteActionButtonsContainer = () => {
   const router = useRouter();
   const dispatch = useDispatch();
-  const { pet_name, contents, type, sex, location, missing_date, image_url, born_year, latitude, longitude, post, postError, originalPostId } = useSelector(({ write }) => ({
+  const { pet_name, contents, type, sex, missing_location, missing_date, image_url, born_year, latitude, longitude, post, postError, originalPostId } = useSelector(({ write }) => ({
     pet_name: write.pet_name,
     contents: write.contents,
     type: write.type,
     sex: write.sex,
-    location: write.location,
+    missing_location: write.missing_location,
     missing_date: write.missing_date,
     image_url: write.image_url,
     born_year: write.born_year,
@@ -33,7 +33,7 @@ const WriteActionButtonsContainer = () => {
           contents,
           type,
           sex,
-          location,
+          missing_location,
           missing_date,
           longitude,
           latitude,
@@ -53,7 +53,7 @@ const WriteActionButtonsContainer = () => {
       !type ||
       !sex ||
       !born_year ||
-      !location ||
+      !missing_location ||
       !latitude ||
       !longitude ||
       !missing_date ||
@@ -62,9 +62,9 @@ const WriteActionButtonsContainer = () => {
       ('모든 정보를 입력해주세요.');
       return;
     } else {
-      console.log(contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date)
+      console.log(contents, pet_name, type, sex, born_year, missing_location, latitude, longitude, missing_date)
       dispatch(
-        writePost({ contents, pet_name, type, sex, born_year, location, latitude, longitude, missing_date, image_url })
+        writePost({ contents, pet_name, type, sex, born_year, missing_location, latitude, longitude, missing_date, image_url })
       );
       ('게시물이 등륵되었습니다.')
       router.push('/missing');
