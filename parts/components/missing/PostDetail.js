@@ -13,10 +13,9 @@ const PostViewerBlock = styled(Responsive)`
 `;
 const PostHead = styled.div`
   border-bottom: 1px solid #e9ecef;
-  padding-bottom: 3rem;
   margin-bottom: 3rem;
   h1 {
-    font-size: 3rem;
+    font-size: 45px;
     line-height: 1.5;
     margin: 0;
   }
@@ -33,16 +32,26 @@ const SubInfo = styled.div`
   }
 `;
 const PostContent = styled.div`
+  img {
+    width: 600px;
+    height: 480px;
+    padding: 50px;
+    margin: auto;    
+    display: block;
+  }
+
+  div{
+    margin: 20px auto;
+    display: block;
+    text-align: center;
+  }
+  
   display:flex;
   flex-direction:column;
-  align-items: center;
-  justify-content: cneter;
-  font-size: 1.3125rem;
+  justify-content: left;
+  font-size: 20px;
+  font-weight: 600;
   color: #343a40;
-  margin-bottom: 3rem;
-  div + div {
-    margin: 10px;
-  }
 `;
 
 const PostDetail = ({ post, error, loading, user, actionButtons }) => {
@@ -93,14 +102,16 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
             </PostHead>
               {actionButtons}
             <PostContent>
+            <div>
               <img src={`http://localhost:5000/${image_url}`} />
-              <div>실종 동물 이름: {pet_name}</div>
+              <div>이름: {pet_name}</div>
               <div>품종: {type}</div>
               <div>성별: {sex}</div>
               <div>출생년도: {born_year}</div>
               <div>실종 장소: {location}</div>
               <div>실종 날짜: {missing_date}</div>
               <p>내용: {contents}</p>
+            </div>
             </PostContent>
           </PostViewerBlock>
           <MapContent post={post}/>
