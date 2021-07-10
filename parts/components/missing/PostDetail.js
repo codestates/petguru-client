@@ -32,6 +32,13 @@ const SubInfo = styled.div`
   }
 `;
 const PostContent = styled.div`
+  display:flex;
+  flex-direction:column;
+  justify-content: left;
+  font-size: 20px;
+  font-weight: 600;
+  color: #343a40;
+
   img {
     width: 600px;
     height: 480px;
@@ -45,13 +52,6 @@ const PostContent = styled.div`
     display: block;
     text-align: center;
   }
-  
-  display:flex;
-  flex-direction:column;
-  justify-content: left;
-  font-size: 20px;
-  font-weight: 600;
-  color: #343a40;
 `;
 
 const PostDetail = ({ post, error, loading, user, actionButtons }) => {
@@ -79,7 +79,7 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
     type,
     sex,
     born_year,
-    location,
+    missing_location,
     latitude,
     longitude,
     missing_date,
@@ -103,12 +103,12 @@ const PostDetail = ({ post, error, loading, user, actionButtons }) => {
               {actionButtons}
             <PostContent>
             <div>
-              <img src={`http://localhost:5000/${image_url}`} />
+              <img src={`${image_url}`} />
               <div>이름: {pet_name}</div>
               <div>품종: {type}</div>
               <div>성별: {sex}</div>
               <div>출생년도: {born_year}</div>
-              <div>실종 장소: {location}</div>
+              <div>실종 장소: {missing_location}</div>
               <div>실종 날짜: {missing_date}</div>
               <p>내용: {contents}</p>
             </div>

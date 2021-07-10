@@ -46,7 +46,7 @@ const ContentsCard = styled.div`
 `;
 
 const CardItem = ({ post }) => {
-  const { id, pet_name, type, sex, location, missing_date, born_year, image_url } = post;
+  const { id, pet_name, type, sex, missing_location, missing_date, born_year, image_url } = post;
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -58,13 +58,14 @@ const CardItem = ({ post }) => {
   return (
     <ContentsCard onClick={onClick}>
       <div>
-        <img src={require('../img/basic-img.jpeg')} />
+        {/* <img src={require('../img/basic-img.jpeg')} /> */}
+        <img src={`${image_url}`} />
       </div>
       <div className="contents">
         <div className="contents-title">이름 : { pet_name }</div>
         <div className="contents-title">품종 : { type }</div>
         <div className="contents-title">성별 : { sex }</div>
-        <div className="contents-title">실종장소 : { location }</div>
+        <div className="contents-title">실종장소 : { missing_location }</div>
         <div className="contents-title">실종날짜 : { missing_date }</div>
         <div className="contents-title">출생년도 : { born_year }</div>
       </div>

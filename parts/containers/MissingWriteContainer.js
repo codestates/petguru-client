@@ -5,12 +5,12 @@ import MissingWrite from '../components/missing/write/MissingWrite';
 
 const MissingWriteContainer = () => {
   const dispatch = useDispatch();
-  const { pet_name, contents, type, sex, location, missing_date, image_url, born_year, latitude, longitude } = useSelector(({ write }) => ({
+  const { pet_name, contents, type, sex, missing_location, missing_date, image_url, born_year, latitude, longitude } = useSelector(({ write }) => ({
     pet_name: write.pet_name,
     contents: write.contents,
     type: write.type,
     sex: write.sex,
-    location: write.location,
+    missing_location: write.missing_location,
     missing_date: write.missing_date,
     image_url: write.image_url,
     born_year: write.born_year
@@ -27,7 +27,7 @@ const MissingWriteContainer = () => {
     };
   }, [dispatch]);
   return (
-    <MissingWrite onChangeField={onChangeField} pet_name={pet_name} contents={contents} type={type} sex={sex} location={location} mssing_date={missing_date} image_url={image_url} born_year={born_year} latitude={latitude} longitude={longitude} post={post}/>
+    <MissingWrite onChangeField={onChangeField} pet_name={pet_name} contents={contents} type={type} sex={sex} missing_location={missing_location} mssing_date={missing_date} image_url={image_url} born_year={born_year} latitude={latitude} longitude={longitude} post={post}/>
   );
 }
 

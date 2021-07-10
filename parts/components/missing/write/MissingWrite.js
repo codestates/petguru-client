@@ -11,7 +11,7 @@ const MissingWrite = ({
   contents,
   type,
   sex,
-  location,
+  missing_location,
   missing_date,
   image_url,
   born_year,
@@ -49,7 +49,7 @@ const MissingWrite = ({
         )
         .then((res) => {
           onChangeField({
-            key: "location",
+            key: "missing_location",
             value: res.data.documents[0].address.address_name,
           });
           onChangeField({ key: "latitude", value: mouseEvent.latLng.La });
@@ -109,16 +109,11 @@ const MissingWrite = ({
     //   imageFormData.append('image', f);
     // })
     imageFormData.append('image', e.target.files[0]);
-    for (var value of imageFormData.values()) {
-      console.log('onChangeImage 실행중', value);
-    }
 
-    const path = await axios.post('http://localhost:5000/missing/images', imageFormData).then((res) => res.data.image);
-
-    console.log(path);
+    const path = await axios.post('http://ec2-3-18-214-150.us-east-2.compute.amazonaws.com:3000/missing/posts/image', imageFormData).then((res) => res.data.image);
     
     // dispatch(uploadImage({ imageFormData }));
-    onChangeField({ key: "image_url", value: path });
+    onChangeField({ key: "image_url", value: path[0]["image_url"] });
   }, []);
 
   return (
@@ -179,7 +174,7 @@ const MissingWrite = ({
               <div className="col75">
                 <input
                   type="text"
-                  value={location}
+                  value={missing_location}
                   className="inputArea"
                   placeholder="지도에 마커를 남겨주세요"
                 />
