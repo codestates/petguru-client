@@ -28,10 +28,10 @@ const LandingPageMain = ({ children, props }) => {
         <br />
         <hr />
         <ul class="grid">
-          <li class="large" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
+          <li class="large" style={{ backgroundImage: "url(img/gif1.gif)" }}></li>
           <li class="small" style={{ backgroundImage: "url(img/desc1.jpeg)" }}></li>
           <li class="small" style={{ backgroundImage: "url(img/desc2.jpeg)" }}></li>
-          <li class="large" style={{ backgroundImage: "url(img/4.jpeg)" }}></li>
+          <li class="large" style={{ backgroundImage: "url(img/gif2.gif)" }}></li>
         </ul>
       </section>
 
