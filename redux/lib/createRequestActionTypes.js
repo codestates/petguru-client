@@ -28,7 +28,7 @@ export default function createRequestSaga(type, request) {
       // console.log('try문이 시작됩니다.')
       // console.log('request는', request);
       const response = yield call(request, action.payload);
-      console.log('문제는 이거: ',response.data);
+      console.log('문제는 이거: ',response);
       // console.log('response', response);
       yield put({
         type: SUCCESS,

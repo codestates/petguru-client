@@ -10,7 +10,8 @@ const PostListBlock = styled(Responsive)`
 
 const CardContainer = styled.div`
   width: fit-content;
-  display: flex;  
+  display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   cursor: pointer;
 `;

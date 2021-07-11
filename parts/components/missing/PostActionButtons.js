@@ -28,7 +28,7 @@ const ActionButton = styled.button`
   }
 `;
 
-const PostActionButtons = ({onEdit, onRemove}) => {
+const PostActionButtons = ({onEdit, onRemove, setRemove}) => {
   const [modal, setModal] = useState(false);
 
   const onRemoveClick = () => {
@@ -39,6 +39,7 @@ const PostActionButtons = ({onEdit, onRemove}) => {
   }
   const onConfirm = () => {
     setModal(false);
+    setRemove(true);
     onRemove();
   };
   return (

@@ -31,6 +31,8 @@ const ErrorMessage = styled.div`
 export default function Login() {
   const router = useRouter();
   const dispatch = useDispatch();
+  const [google, setGoogle] = useState(false);
+  const [guest, setGuest] = useState(false);
   const [error, setError] = useState(null);
 
   const { form, auth, authError, user } = useSelector(({ auth, user }) => ({
@@ -60,11 +62,16 @@ export default function Login() {
 
   const responseGoogle = (response) => {
     const { email, name, googleId } = response;
-    console.log(response);
-    console.log(response.profileObj);
+    // console.log(response);
+    // console.log(response.profileObj);
+      setGoogle(true);
     // 디스패치로 서버에 response 데이터 넘기고 토큰 발급??
-    dispatch(googleLogin({ email, name, googleId }));
+    // dispatch(googleLogin({ email, name, googleId }));
   };
+
+  const guestLogin = () => {
+    setGuest(true);
+  }
 
   // 컴포넌트 첫 렌더링 => 폼 초기화
   useEffect(() => {
@@ -77,18 +84,36 @@ export default function Login() {
       console.log(error);
       return;
     }
-    if (auth) {
-      Swal.fire({
-        icon: 'success',
-        title: '반가워요!!',
-        text: '로그인 성공',
-        confirmButtonColor: '#798777'
-      });
-      router.push("/home");
-      // dispatch(check());
-    }
   }, [auth, authError, dispatch]);
 
+  if (auth) {
+    Swal.fire({
+      icon: 'success',
+      title: '반가워요!!',
+      text: '로그인 성공',
+      confirmButtonColor: '#798777'
+    });
+    router.push("/home");
+    // dispatch(check());
+  }
+  if (google) {
+    Swal.fire({
+      icon: 'success',
+      title: '반가워요!!',
+      text: '로그인 성공',
+      confirmButtonColor: '#798777'
+    });
+    router.push("/home");
+  }
+  if (guest) {
+    Swal.fire({
+      icon: 'success',
+      title: '반가워요!!',
+      text: '게스트 로그인 성공',
+      confirmButtonColor: '#798777'
+    });
+    router.push("/home");
+  }
 
   // useEffect(() => {
   //   if (user) {
@@ -170,7 +195,7 @@ export default function Login() {
                   onFailure={responseGoogle}
                   cookiePolicy={"single_host_origin"}
                 />
-                <button type="button" className="btn-login">
+                <button type="button" className="btn-login" onClick={guestLogin}>
                   <Link href="/home">Guest 로그인</Link>
                 </button>
               </form>

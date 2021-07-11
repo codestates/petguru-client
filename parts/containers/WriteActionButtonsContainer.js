@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { writePost, updatePost } from '../../redux/modules/missing_write';
 import WriteActionButtons from '../components/missing/write/WriteActionButtons';
+import Swal from "sweetalert2";
 
 const WriteActionButtonsContainer = () => {
   const router = useRouter();
@@ -42,7 +43,12 @@ const WriteActionButtonsContainer = () => {
           id: originalPostId
         })
       );
-      ('게시물 수정이 완료됐습니다.');
+      Swal.fire({
+        icon: 'success',
+        title: '등록 성공',
+        text: '게시물이 수정되었습니다.',
+        confirmButtonColor: '#798777'
+      });
       router.push(`/missing/${parm}`)
       return;
     }
@@ -59,15 +65,25 @@ const WriteActionButtonsContainer = () => {
       !missing_date ||
       !image_url
     ) {
-      ('모든 정보를 입력해주세요.');
+      Swal.fire({
+        icon: 'error',
+        title: '에러',
+        text: '모든 정보를 입력해주세요.',
+        confirmButtonColor: '#798777'
+      });
       return;
     } else {
       console.log(contents, pet_name, type, sex, born_year, missing_location, latitude, longitude, missing_date)
       dispatch(
         writePost({ contents, pet_name, type, sex, born_year, missing_location, latitude, longitude, missing_date, image_url })
       );
-      ('게시물이 등륵되었습니다.')
       router.push('/missing');
+      Swal.fire({
+        icon: 'success',
+        title: '등록 성공',
+        text: '게시물이 등록되었습니다.',
+        confirmButtonColor: '#798777'
+      });
     }
   };
 
