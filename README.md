@@ -42,6 +42,9 @@
 ## 로그아웃
 <img src="https://i.ibb.co/8NdtS1W/petguru-logout.gif" alt="petguru-logout" border="0" width="700px">
 
+## 랜딩페이지
+<img src="https://i.ibb.co/Z29FRX5/petguru-landing-Page.gif" alt="petguru-landing-Page" border="0" width="700px">
+
 ## 게시물 등록
 <img src="https://i.ibb.co/6nxtTSR/petguru-add-Missing-Post.gif" alt="petguru-add-Missing-Post" border="0" width="700px">
 
