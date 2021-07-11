@@ -100,7 +100,7 @@ const MissingContainer = () => {
   );
 
   useEffect(() => {
-    const lastId = posts[posts.length - 1]?.id;
+    const lastId = posts[posts.length - 1]?.id || 0;
     console.log('lastId : ', lastId)
     dispatch(listPosts(lastId));
   }, [dispatch]);

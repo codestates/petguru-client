@@ -110,7 +110,7 @@ const MissingWrite = ({
     // })
     imageFormData.append('image', e.target.files[0]);
 
-    const path = await axios.post('http://ec2-3-18-214-150.us-east-2.compute.amazonaws.com:3000/missing/posts/image', imageFormData).then((res) => res.data.image);
+    const path = await axios.post('http://localhost:5000/missing/posts/image', imageFormData).then((res) => res.data.image);
     
     // dispatch(uploadImage({ imageFormData }));
     onChangeField({ key: "image_url", value: path[0]["image_url"] });
