@@ -28,44 +28,34 @@
 # 주요 기능
 
 ## 회원가입
-
-![](https://i.ibb.co/TkxMFp8/register.gif)
+<img src="https://i.ibb.co/TkRN0PG/petguru-register.gif" alt="petguru-register" border="0" width="700px">
 
 ## 로그인
-
-![](https://i.ibb.co/5kN692r/login.gif)
+<img src="https://i.ibb.co/WKkRNHZ/petguru-login.gif" alt="petguru-login" border="0" width="700px">
 
 ## 구글 로그인
+<img src="https://i.ibb.co/KD8XF0B/petguru-google-Login.gif" alt="petguru-google-Login" border="0" width="700px">
 
-![](https://i.ibb.co/JH1kL24/google-Login.gif)
+## 게스트 로그인
+<img src="https://i.ibb.co/56Fp1Hz/petguru-guest-Login.gif" alt="petguru-guest-Login" border="0" width="700px">
 
 ## 로그아웃
+<img src="https://i.ibb.co/8NdtS1W/petguru-logout.gif" alt="petguru-logout" border="0" width="700px">
 
-![](https://i.ibb.co/wdBs970/logout.gif)
+## 게시물 등록
+<img src="https://i.ibb.co/6nxtTSR/petguru-add-Missing-Post.gif" alt="petguru-add-Missing-Post" border="0" width="700px">
 
----
+## 게시물 가져오기
+<img src="https://i.ibb.co/C8KZhmv/petguru-get-Detail-Post.gif" alt="petguru-get-Detail-Post" border="0" width="700px">
 
-## Q&A
+## 게시물 수정
+<img src="https://i.ibb.co/8m15RH0/petguru-edit-Missing-Post.gif" alt="petguru-edit-Missing-Post" border="0" width="700px">
 
----
+## 게시물 삭제
+<img src="https://i.ibb.co/Wkv0k6D/petguru-delete-Missing-Post.gif" alt="petguru-delete-Missing-Post" border="0" width="700px">
 
-## 실종신고
-
-### 게시물 등록
-
-![](https://i.ibb.co/3mt9dD5/submit-Post.gif)
-
-### 게시물 가져오기
-
-![](https://i.ibb.co/hC64g9V/getPosts.gif)
-
-### 게시물 수정
-
-![](https://i.ibb.co/HD3bKrm/editPost.gif)
-
-### 게시물 삭제
-
-![](https://i.ibb.co/vC9Ptyj/Delete-Post.gif)
+## 게시물 목록 가져오기
+<img src="https://i.ibb.co/JzJWt9f/petguru-infinity-Scroll.gif" alt="petguru-infinity-Scroll" border="0" width="700px">
 
 # 멤버 소개
 
