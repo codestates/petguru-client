@@ -11,6 +11,15 @@
 > 반려동물의 정보와 실종된 지역을 등록하면<br>
 > 많은 반려인들이 도움을 드릴 거에요!
 
+# 실행방법
+
+```
+① 해당 레포지토리를 클론한다.
+② 프로젝트의 패키지를 설치한다. (npm install)
+③ scripts 명령어로 프로젝트를 실행한다. (npm start)
+```
+
+
 # 🛠 Tech stack
 
 ![](https://i.ibb.co/NWbVbbM/stack.jpg)
